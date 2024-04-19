@@ -1,0 +1,10 @@
+---
+- name: "SECTION | {{ postgresqlcis_rule_4_1_id }} | {{ postgresqlcis_rule_4_1_name }}"
+  ansible.builtin.include_tasks: cis_4.1.yml
+  vars:
+    postgresqlcis_rule_4_1_name: ""
+  when:
+    - postgresqlcis_rule_4_1
+  tags:
+    - postgresqlcis_rule_4_1
+...

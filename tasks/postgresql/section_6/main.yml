@@ -1,0 +1,82 @@
+---
+- name: "SECTION | {{ postgresqlcis_rule_6_1_id }} | {{ postgresqlcis_rule_6_1_name }}"
+  ansible.builtin.include_tasks: cis_6.1.yml
+  vars:
+    postgresqlcis_rule_6_1_name: ""
+  when:
+    - postgresqlcis_rule_6_1
+  tags:
+    - postgresqlcis_rule_6_1
+
+- name: "SECTION | {{ postgresqlcis_rule_6_2_id }} | {{ postgresqlcis_rule_6_2_name }}"
+  ansible.builtin.include_tasks: cis_6.2.yml
+  vars:
+    postgresqlcis_rule_6_2_name: ""
+  when:
+    - postgresqlcis_rule_6_2
+  tags:
+    - postgresqlcis_rule_6_2
+
+- name: "SECTION | {{ postgresqlcis_rule_6_3_id }} | {{ postgresqlcis_rule_6_3_name }}"
+  ansible.builtin.include_tasks: cis_6.3.yml
+  vars:
+    postgresqlcis_rule_6_3_name: ""
+  when:
+    - postgresqlcis_rule_6_3
+  tags:
+    - postgresqlcis_rule_6_3
+
+- name: "SECTION | {{ postgresqlcis_rule_6_4_id }} | {{ postgresqlcis_rule_6_4_name }}"
+  ansible.builtin.include_tasks: cis_6.4.yml
+  vars:
+    postgresqlcis_rule_6_4_name: ""
+  when:
+    - postgresqlcis_rule_6_4
+  tags:
+    - postgresqlcis_rule_6_4
+
+- name: "SECTION | {{ postgresqlcis_rule_6_5_id }} | {{ postgresqlcis_rule_6_5_name }}"
+  ansible.builtin.include_tasks: cis_6.5.yml
+  vars:
+    postgresqlcis_rule_6_5_name: ""
+  when:
+    - postgresqlcis_rule_6_5
+  tags:
+    - postgresqlcis_rule_6_5
+
+- name: "SECTION | {{ postgresqlcis_rule_6_6_id }} | {{ postgresqlcis_rule_6_6_name }}"
+  ansible.builtin.include_tasks: cis_6.6.yml
+  vars:
+    postgresqlcis_rule_6_6_name: ""
+  when:
+    - postgresqlcis_rule_6_6
+  tags:
+    - postgresqlcis_rule_6_6
+
+- name: "SECTION | {{ postgresqlcis_rule_6_7_id }} | {{ postgresqlcis_rule_6_7_name }}"
+  ansible.builtin.include_tasks: cis_6.7.yml
+  vars:
+    postgresqlcis_rule_6_7_name: ""
+  when:
+    - postgresqlcis_rule_6_7
+  tags:
+    - postgresqlcis_rule_6_7
+
+- name: "SECTION | {{ postgresqlcis_rule_6_8_id }} | {{ postgresqlcis_rule_6_8_name }}"
+  ansible.builtin.include_tasks: cis_6.8.yml
+  vars:
+    postgresqlcis_rule_6_8_name: ""
+  when:
+    - postgresqlcis_rule_6_8
+  tags:
+    - postgresqlcis_rule_6_8
+
+- name: "SECTION | {{ postgresqlcis_rule_6_9_id }} | {{ postgresqlcis_rule_6_9_name }}"
+  ansible.builtin.include_tasks: cis_6.9.yml
+  vars:
+    postgresqlcis_rule_6_9_name: ""
+  when:
+    - postgresqlcis_rule_6_9
+  tags:
+    - postgresqlcis_rule_6_9
+...

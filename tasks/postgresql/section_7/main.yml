@@ -1,0 +1,73 @@
+---
+- name: "SECTION | {{ postgresqlcis_rule_7_1_id }} | {{ postgresqlcis_rule_7_1_name }}"
+  ansible.builtin.include_tasks: cis_7.1.yml
+  vars:
+    postgresqlcis_rule_7_1_name: ""
+  when:
+    - postgresqlcis_rule_7_1
+  tags:
+    - postgresqlcis_rule_7_1
+
+- name: "SECTION | {{ postgresqlcis_rule_7_2_id }} | {{ postgresqlcis_rule_7_2_name }}"
+  ansible.builtin.include_tasks: cis_7.2.yml
+  vars:
+    postgresqlcis_rule_7_2_name: ""
+  when:
+    - postgresqlcis_rule_7_2
+  tags:
+    - postgresqlcis_rule_7_2
+
+- name: "SECTION | {{ postgresqlcis_rule_7_3_id }} | {{ postgresqlcis_rule_7_3_name }}"
+  ansible.builtin.include_tasks: cis_7.3.yml
+  vars:
+    postgresqlcis_rule_7_3_name: ""
+  when:
+    - postgresqlcis_rule_7_3
+  tags:
+    - postgresqlcis_rule_7_3
+
+- name: "SECTION | {{ postgresqlcis_rule_7_4_id }} | {{ postgresqlcis_rule_7_4_name }}"
+  ansible.builtin.include_tasks: cis_7.4.yml
+  vars:
+    postgresqlcis_rule_7_4_name: ""
+  when:
+    - postgresqlcis_rule_7_4
+  tags:
+    - postgresqlcis_rule_7_4
+
+- name: "SECTION | {{ postgresqlcis_rule_7_5_id }} | {{ postgresqlcis_rule_7_5_name }}"
+  ansible.builtin.include_tasks: cis_7.5.yml
+  vars:
+    postgresqlcis_rule_7_5_name: ""
+  when:
+    - postgresqlcis_rule_7_5
+  tags:
+    - postgresqlcis_rule_7_5
+
+- name: "SECTION | {{ postgresqlcis_rule_7_6_id }} | {{ postgresqlcis_rule_7_6_name }}"
+  ansible.builtin.include_tasks: cis_7.6.yml
+  vars:
+    postgresqlcis_rule_7_6_name: ""
+  when:
+    - postgresqlcis_rule_7_6
+  tags:
+    - postgresqlcis_rule_7_6
+
+- name: "SECTION | {{ postgresqlcis_rule_7_7_id }} | {{ postgresqlcis_rule_7_7_name }}"
+  ansible.builtin.include_tasks: cis_7.7.yml
+  vars:
+    postgresqlcis_rule_7_7_name: ""
+  when:
+    - postgresqlcis_rule_7_7
+  tags:
+    - postgresqlcis_rule_7_7
+
+- name: "SECTION | {{ postgresqlcis_rule_7_8_id }} | {{ postgresqlcis_rule_7_8_name }}"
+  ansible.builtin.include_tasks: cis_7.8.yml
+  vars:
+    postgresqlcis_rule_7_8_name: ""
+  when:
+    - postgresqlcis_rule_7_8
+  tags:
+    - postgresqlcis_rule_7_8
+...

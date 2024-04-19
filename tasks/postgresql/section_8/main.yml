@@ -1,0 +1,28 @@
+---
+- name: "SECTION | {{ postgresqlcis_rule_8_1_id }} | {{ postgresqlcis_rule_8_1_name }}"
+  ansible.builtin.include_tasks: cis_8.1.yml
+  vars:
+    postgresqlcis_rule_8_1_name: ""
+  when:
+    - postgresqlcis_rule_8_1
+  tags:
+    - postgresqlcis_rule_8_1
+
+- name: "SECTION | {{ postgresqlcis_rule_8_2_id }} | {{ postgresqlcis_rule_8_2_name }}"
+  ansible.builtin.include_tasks: cis_8.2.yml
+  vars:
+    postgresqlcis_rule_8_2_name: ""
+  when:
+    - postgresqlcis_rule_8_2
+  tags:
+    - postgresqlcis_rule_8_2
+
+- name: "SECTION | {{ postgresqlcis_rule_8_3_id }} | {{ postgresqlcis_rule_8_3_name }}"
+  ansible.builtin.include_tasks: cis_8.3.yml
+  vars:
+    postgresqlcis_rule_8_3_name: ""
+  when:
+    - postgresqlcis_rule_8_3
+  tags:
+    - postgresqlcis_rule_8_3
+...

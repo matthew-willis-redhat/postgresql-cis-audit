@@ -1,0 +1,39 @@
+---
+# tasks file for roles/QL-postgresql-cis-audit
+
+- name: "[INCLUDE_TASK] - prelim.yml"
+  ansible.builtin.include_tasks:
+    file: prelim.yml
+
+- name: "[INCLUDE_TASK] - postgreql-audit.yml"
+  ansible.builtin.include_tasks:
+    file: postgreql-audit.yml
+  # when:
+  #   - postgreql_ver_maj_min == ""
+
+# - name: If Warnings were found, output the warning count and rule IDs affected
+#   ansible.builtin.debug:
+#     msg:
+#       - "You have {{ warn_rule_count }} Warning(s) that require investigating that are related to the following benchmark ID(s):"
+#       - "============================================================================================="
+#       - "{{ warn_rule_report }}"
+#   when: warn_rule_count != 0
+#   tags:
+#     - always
+
+- name: Full PostgreSQL CIS Compliance Report
+  ansible.builtin.debug:
+    msg:
+      - "Full PostgreSQL {{ mysql_ver_maj_min }} CIS Compliance Report"
+      - "Hostname: {{ inventory_hostname }}"
+      - "PostgreSQL Version: {{ mysql_ver_full }}"
+      - "Total PostgreSQL CIS Benchmark Checks: {{ full_rule_count }}"
+      - "Total Warning(s)/Failure(s): {{ warn_rule_count }}"
+      - "============================================================================================="
+      - "{{ full_rule_report }}"
+  when: 
+    - full_rule_report is defined 
+    - full_rule_report | length > 0
+  tags:
+    - always
+...

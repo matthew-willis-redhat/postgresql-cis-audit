@@ -1,0 +1,174 @@
+---
+# Vars for PostgreSQL
+
+
+# Default Rule Result - Overwrite variable in benchmark task
+postgresqlcis_rule_result: FAILED
+
+# Set to true for remediation tasks
+postgresqlcis_level_1_patch: false
+
+# Enable/Disable full sections toggle
+# Set to true will run that section, set to false will skip section
+postgresqlcis_section_1: true
+postgresqlcis_section_2: false
+postgresqlcis_section_3: false
+postgresqlcis_section_4: false
+postgresqlcis_section_5: false
+postgresqlcis_section_6: false
+postgresqlcis_section_7: false
+postgresqlcis_section_8: false
+
+postgresqlcis_level_1: true
+postgresqlcis_level_2: true
+
+# Section 1
+# 
+postgresqlcis_rule_1_1: true
+postgresqlcis_rule_1_2: true
+postgresqlcis_rule_1_3: false
+
+# Section 2
+# 
+postgresqlcis_rule_2_1: true
+
+# Section 3
+# 
+#postgresqlcis_rule_3_1: true
+postgresqlcis_rule_3_1_1: true
+postgresqlcis_rule_3_1_2: true
+postgresqlcis_rule_3_1_3: true
+postgresqlcis_rule_3_1_4: true
+postgresqlcis_rule_3_1_5: true
+postgresqlcis_rule_3_1_6: true
+postgresqlcis_rule_3_1_7: true
+postgresqlcis_rule_3_1_8: true
+postgresqlcis_rule_3_1_9: true
+postgresqlcis_rule_3_1_10: true
+postgresqlcis_rule_3_1_11: true
+postgresqlcis_rule_3_1_12: true
+postgresqlcis_rule_3_1_13: true
+postgresqlcis_rule_3_1_14: true
+postgresqlcis_rule_3_1_15: true
+postgresqlcis_rule_3_1_16: true
+postgresqlcis_rule_3_1_17: true
+postgresqlcis_rule_3_1_18: true
+postgresqlcis_rule_3_1_19: true
+# postgresqlcis_rule_3_1_20: false
+# postgresqlcis_rule_3_1_21: false
+# postgresqlcis_rule_3_1_22: false
+postgresqlcis_rule_3_1_23: true
+# postgresqlcis_rule_3_1_24: false
+# postgresqlcis_rule_3_1_25: false
+postgresqlcis_rule_3_1_26: true
+# postgresqlcis_rule_3_2: false
+
+# Section 4
+# 
+postgresqlcis_rule_4_1: true
+
+# Section 5
+# 
+postgresqlcis_rule_5_1: true
+# postgresqlcis_rule_5_2: false
+
+# Section 6
+# Auditing and Logging
+# postgresqlcis_rule_6_1: false
+postgresqlcis_rule_6_2: true
+postgresqlcis_rule_6_3: true
+# postgresqlcis_rule_6_4: false
+# postgresqlcis_rule_6_5: false
+# postgresqlcis_rule_6_6: false
+# postgresqlcis_rule_6_7: false
+postgresqlcis_rule_6_8: true
+# postgresqlcis_rule_6_9: false
+
+# Section 7
+# 
+postgresqlcis_rule_7_1: true
+postgresqlcis_rule_7_2: true
+postgresqlcis_rule_7_3: true
+postgresqlcis_rule_7_4: true
+# postgresqlcis_rule_7_5: false
+postgresqlcis_rule_7_7: true
+postgresqlcis_rule_7_8: true
+
+# Section 8
+# 
+# postgresqlcis_rule_8_1: false
+postgresqlcis_rule_8_2: true
+# postgresqlcis_rule_8_3: false
+
+
+# Rule IDs
+
+# Section 1
+postgresqlcis_rule_1_1_id: "1.1"
+postgresqlcis_rule_1_2_id: "1.2"
+postgresqlcis_rule_1_3_id: "1.3"
+
+# Section 2
+postgresqlcis_rule_2_1_id: "2.1"
+
+# Section 3
+postgresqlcis_rule_3_1_1_id: "3.1.1"
+postgresqlcis_rule_3_1_2_id: "3.1.2"
+postgresqlcis_rule_3_1_3_id: "3.1.3"
+postgresqlcis_rule_3_1_4_id: "3.1.4"
+postgresqlcis_rule_3_1_5_id: "3.1.5"
+postgresqlcis_rule_3_1_6_id: "3.1.6"
+postgresqlcis_rule_3_1_7_id: "3.1.7"
+postgresqlcis_rule_3_1_8_id: "3.1.8"
+postgresqlcis_rule_3_1_9_id: "3.1.9"
+postgresqlcis_rule_3_1_10_id: "3.1.10"
+postgresqlcis_rule_3_1_11_id: "3.1.11"
+postgresqlcis_rule_3_1_12_id: "3.1.12"
+postgresqlcis_rule_3_1_13_id: "3.1.13"
+postgresqlcis_rule_3_1_14_id: "3.1.14"
+postgresqlcis_rule_3_1_15_id: "3.1.15"
+postgresqlcis_rule_3_1_16_id: "3.1.16"
+postgresqlcis_rule_3_1_17_id: "3.1.17"
+postgresqlcis_rule_3_1_18_id: "3.1.18"
+postgresqlcis_rule_3_1_19_id: "3.1.19"
+postgresqlcis_rule_3_1_20_id: "3.1.20"
+postgresqlcis_rule_3_1_21_id: "3.1.21"
+postgresqlcis_rule_3_1_22_id: "3.1.22"
+postgresqlcis_rule_3_1_23_id: "3.1.23"
+postgresqlcis_rule_3_1_24_id: "3.1.24"
+postgresqlcis_rule_3_1_25_id: "3.1.25"
+postgresqlcis_rule_3_1_26_id: "3.1.26"
+postgresqlcis_rule_3_2_id: "3.2" 
+
+# Section 4
+postgresqlcis_rule_4_1_id: "4.1"
+
+# Section 5
+postgresqlcis_rule_5_1_id: "5.1"
+postgresqlcis_rule_5_2_id: "5.2"
+
+# Section 6
+postgresqlcis_rule_6_1_id: "6.1"
+postgresqlcis_rule_6_2_id: "6.2"
+postgresqlcis_rule_6_3_id: "6.3"
+postgresqlcis_rule_6_4_id: "6.4"
+postgresqlcis_rule_6_5_id: "6.5"
+postgresqlcis_rule_6_6_id: "6.6"
+postgresqlcis_rule_6_7_id: "6.7"
+postgresqlcis_rule_6_8_id: "6.8"
+postgresqlcis_rule_6_9_id: "6.9"
+
+# Section 7
+postgresqlcis_rule_7_1_id: "7.1"
+postgresqlcis_rule_7_2_id: "7.2"
+postgresqlcis_rule_7_3_id: "7.3"
+postgresqlcis_rule_7_4_id: "7.4"
+postgresqlcis_rule_7_5_id: "7.5"
+postgresqlcis_rule_7_7_id: "7.7"
+postgresqlcis_rule_7_8_id: "7.8"
+
+# Section 8
+postgresqlcis_rule_8_1_id: "8.1"
+postgresqlcis_rule_8_2_id: "8.2"
+postgresqlcis_rule_8_3_id: "8.3"
+

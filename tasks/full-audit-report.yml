@@ -1,0 +1,6 @@
+---
+- name: "PostgreSQL {{ postgresql_ver_maj_min }} CIS Audit | {{ postgresql_cis_rule_id }} | AUDIT | {{ postgresql_cis_rule_name }} | Set fact for rule report"
+  ansible.builtin.set_fact:
+    full_rule_report: "{{ full_rule_report + [ postgresql_cis_rule_result + ': ' + postgresql_cis_rule_id + ' - ' +  postgresql_cis_rule_name ] }}"
+    full_rule_count: "{{ full_rule_count | int + 1 }}"
+...
