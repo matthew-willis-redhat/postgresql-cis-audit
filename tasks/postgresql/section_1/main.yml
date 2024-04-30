@@ -2,7 +2,7 @@
 - name: "SECTION | {{ postgresqlcis_rule_1_1_id }} | {{ postgresqlcis_rule_1_1_name }}"
   ansible.builtin.include_tasks: cis_1.1.yml
   vars:
-    postgresqlcis_rule_1_1_name: ""
+    postgresqlcis_rule_1_1_name: "Ensure packages are obtained from authorized repositories"
   when:
     - postgresqlcis_rule_1_1
   tags:
@@ -11,7 +11,7 @@
 - name: "SECTION | {{ postgresqlcis_rule_1_2_id }} | {{ postgresqlcis_rule_1_2_name }}"
   ansible.builtin.include_tasks: cis_1.2.yml
   vars:
-    postgresqlcis_rule_1_2_name: ""
+    postgresqlcis_rule_1_2_name: "Install only required packages"
   when:
     - postgresqlcis_rule_1_2
   tags:
@@ -20,7 +20,7 @@
 - name: "SECTION | {{ postgresqlcis_rule_1_3_id }} | {{ postgresqlcis_rule_1_3_name }}"
   ansible.builtin.include_tasks: cis_1.3.yml
   vars:
-    postgresqlcis_rule_1_3_name: ""
+    postgresqlcis_rule_1_3_name: "Ensure systemd Service Files Are Enabled"
   when:
     - postgresqlcis_rule_1_3
   tags:

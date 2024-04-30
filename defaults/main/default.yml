@@ -1,6 +1,9 @@
 ---
 # defaults file for roles/QL-postgresql-cis-audit
 
+benchmark: PostgreSQL-CIS
+benchmark_version: 'v1.2.0'
+
 # Used to control warning summary
 warn_rule_report: []
 warn_rule_count: 0

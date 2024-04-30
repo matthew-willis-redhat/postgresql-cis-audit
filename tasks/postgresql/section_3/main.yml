@@ -11,7 +11,7 @@
 - name: "SECTION | {{ postgresqlcis_rule_3_1_2_id }} | {{ postgresqlcis_rule_3_1_2_name }}"
   ansible.builtin.include_tasks: cis_3.1.2.yml
   vars:
-    postgresqlcis_rule_3_1_2_name: ""
+    postgresqlcis_rule_3_1_2_name: "Ensure the log destinations are set correctly"
   when:
     - postgresqlcis_rule_3_1_2
   tags:
@@ -38,7 +38,7 @@
 - name: "SECTION | {{ postgresqlcis_rule_3_1_5_id }} | {{ postgresqlcis_rule_3_1_5_name }}"
   ansible.builtin.include_tasks: cis_3.1.5.yml
   vars:
-    postgresqlcis_rule_3_1_5_name: ""
+    postgresqlcis_rule_3_1_5_name: "Ensure the filename pattern for log files is set correctly"
   when:
     - postgresqlcis_rule_3_1_5
   tags:
@@ -47,7 +47,7 @@
 - name: "SECTION | {{ postgresqlcis_rule_3_1_6_id }} | {{ postgresqlcis_rule_3_1_6_name }}"
   ansible.builtin.include_tasks: cis_3.1.6.yml
   vars:
-    postgresqlcis_rule_3_1_6_name: ""
+    postgresqlcis_rule_3_1_6_name: "Ensure the log file permissions are set correctly"
   when:
     - postgresqlcis_rule_3_1_6
   tags:

@@ -1,0 +1,70 @@
+---
+- name: "PostgreSQL {{ postgresql_ver_full }} CIS {{ postgresqlcis_rule_2_1_id }} | Reset Rule Result to default value"
+  ansible.builtin.set_fact:
+    postgresqlcis_rule_result: "FAILED"
+
+- name: "PostgreSQL {{ postgresql_ver_full }} CIS {{ postgresqlcis_rule_2_1_id }} | Set Fact Rule ID"
+  ansible.builtin.set_fact:
+    postgresql_cis_rule_id: "{{ postgresqlcis_rule_2_1_id | default('Missing Rule ID') }}"
+
+- name: "PostgreSQL {{ postgresql_ver_full }} CIS {{ postgresqlcis_rule_2_1_id }} | Set Fact Rule Name"
+  ansible.builtin.set_fact:
+    postgresql_cis_rule_name: "{{ postgresqlcis_rule_2_1_name }}"
+
+- name: "PostgreSQL {{ postgresql_ver_full }} CIS {{ postgresqlcis_rule_2_1_id }} | AUDIT | {{ postgresql_cis_rule_name }}"
+  tags:
+    - audit
+    - level1-postgresql
+    - rule_2.1
+  when:
+    - postgresqlcis_rule_2_1
+  block:
+    - name: Get umask of postgres user
+      ansible.builtin.lineinfile:
+        path: "{{ postgresqlcis_bash_profile }}"
+        regexp: "^umask "
+        line: "umask {{ postgresqlcis_default_umask }}"
+      check_mode: true
+      failed_when: false
+      become: true
+      register: umask_result
+
+    - name: Check if umask is correct
+      ansible.builtin.debug:
+        var: umask_result
+      when: ("'line added' in umask_result['msg']") or ("'line replaced' in umask_result['msg']")
+
+    - name: "PostgreSQL {{ postgresql_ver_full }} CIS {{ postgresqlcis_rule_2_1_id }} | AUDIT | {{ postgresql_cis_rule_name }} || Set Rule Result"
+      ansible.builtin.set_fact:
+        postgresqlcis_rule_result: "PASSED"
+      when: umask_result['changed']  == false
+    
+    - name: "PostgreSQL {{ postgresql_ver_full }} CIS {{ postgresqlcis_rule_2_1_id }} | AUDIT | {{ postgresql_cis_rule_name }} || Set Rule Result"
+      ansible.builtin.set_fact:
+        postgresql_cis_rule_result: "{{ postgresqlcis_rule_result }}"
+
+    - name: "PostgreSQL {{ postgresql_ver_full }} CIS {{ postgresqlcis_rule_2_1_id }} | AUDIT | {{ postgresql_cis_rule_name }} | Add {{ postgresql_cis_rule_id }} result to WARNING Report"
+      ansible.builtin.include_tasks:
+        file: warning-audit-report.yml
+      when: umask_result['changed']  == true
+
+    - name: "PostgreSQL {{ postgresql_ver_full }} CIS {{ postgresqlcis_rule_2_1_id }} | AUDIT | {{ postgresql_cis_rule_name }} | Add {{ postgresql_cis_rule_id }} result to FULL Report"
+      ansible.builtin.include_tasks:
+        file: full-audit-report.yml
+
+- name: "PostgreSQL {{ postgresql_ver_full }} CIS {{ postgresqlcis_rule_2_1_id }} | AUDIT | {{ postgresql_cis_rule_name }}"
+  tags:
+    - patch
+    - level1-postgresql
+    - rule_2.1
+  when:
+    - postgresqlcis_rule_2_1
+  block:
+    - name: Get umask of postgres user
+      ansible.builtin.lineinfile:
+        path: "{{ postgresqlcis_bash_profile }}"
+        regexp: "^umask "
+        line: "umask {{ postgresqlcis_default_umask }}"
+      failed_when: false
+      become: true
+      register: umask_result

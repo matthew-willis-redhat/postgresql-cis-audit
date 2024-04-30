@@ -1,6 +1,23 @@
 ---
 # Vars for PostgreSQL
 
+postgresqlcis_postgres_packages_simple:
+  - postgresql-server
+  - postgresql
+
+postgresqlcis_authorized_repo_list: 
+  - rhel-9-for-x86_64-appstream-rpms
+
+postgresqlcis_postgres_user: postgres
+postgresqlcis_postgres_service: postgresql
+
+postgresqlcis_allowed_superusers:
+  - "{{ postgresqlcis_postgres_user }}"
+
+postgresqlcis_home_path: /var/lib/pgsql
+postgresqlcis_bash_profile: "{{ postgresqlcis_home_path }}/.bash_profile"
+postgresqlcis_default_umask: '077'
+
 
 # Default Rule Result - Overwrite variable in benchmark task
 postgresqlcis_rule_result: FAILED
@@ -23,57 +40,60 @@ postgresqlcis_level_1: true
 postgresqlcis_level_2: true
 
 # Section 1
-# 
+# Installation and Patches
 postgresqlcis_rule_1_1: true
-postgresqlcis_rule_1_2: true
+postgresqlcis_rule_1_2: false
 postgresqlcis_rule_1_3: false
+postgresqlcis_rule_1_4: false
 
 # Section 2
-# 
+# Directory and File Permissions
 postgresqlcis_rule_2_1: true
 
 # Section 3
-# 
-#postgresqlcis_rule_3_1: true
-postgresqlcis_rule_3_1_1: true
+# Logging and Auditing
+# PostgreSQL Logging
+# Logging Rationale
+# postgresqlcis_rule_3_1: true
+postgresqlcis_rule_3_1_1: false
 postgresqlcis_rule_3_1_2: true
-postgresqlcis_rule_3_1_3: true
-postgresqlcis_rule_3_1_4: true
+postgresqlcis_rule_3_1_3: false
+postgresqlcis_rule_3_1_4: false
 postgresqlcis_rule_3_1_5: true
-postgresqlcis_rule_3_1_6: true
-postgresqlcis_rule_3_1_7: true
-postgresqlcis_rule_3_1_8: true
-postgresqlcis_rule_3_1_9: true
-postgresqlcis_rule_3_1_10: true
-postgresqlcis_rule_3_1_11: true
-postgresqlcis_rule_3_1_12: true
-postgresqlcis_rule_3_1_13: true
-postgresqlcis_rule_3_1_14: true
-postgresqlcis_rule_3_1_15: true
-postgresqlcis_rule_3_1_16: true
-postgresqlcis_rule_3_1_17: true
-postgresqlcis_rule_3_1_18: true
-postgresqlcis_rule_3_1_19: true
-# postgresqlcis_rule_3_1_20: false
-# postgresqlcis_rule_3_1_21: false
-# postgresqlcis_rule_3_1_22: false
-postgresqlcis_rule_3_1_23: true
-# postgresqlcis_rule_3_1_24: false
-# postgresqlcis_rule_3_1_25: false
-postgresqlcis_rule_3_1_26: true
-# postgresqlcis_rule_3_2: false
+postgresqlcis_rule_3_1_6: false
+postgresqlcis_rule_3_1_7: false
+postgresqlcis_rule_3_1_8: false
+postgresqlcis_rule_3_1_9: false
+postgresqlcis_rule_3_1_10: false
+postgresqlcis_rule_3_1_11: false
+postgresqlcis_rule_3_1_12: false
+postgresqlcis_rule_3_1_13: false
+postgresqlcis_rule_3_1_14: false
+postgresqlcis_rule_3_1_15: false
+postgresqlcis_rule_3_1_16: false
+postgresqlcis_rule_3_1_17: false
+postgresqlcis_rule_3_1_18: false
+postgresqlcis_rule_3_1_19: false
+postgresqlcis_rule_3_1_20: false
+postgresqlcis_rule_3_1_21: false
+postgresqlcis_rule_3_1_22: false
+postgresqlcis_rule_3_1_23: false
+postgresqlcis_rule_3_1_24: false
+postgresqlcis_rule_3_1_25: false
+postgresqlcis_rule_3_1_26: false
+postgresqlcis_rule_3_2: false
 
 # Section 4
-# 
+# User Access and Authorization
 postgresqlcis_rule_4_1: true
 
 # Section 5
-# 
+# Connection and Login
 postgresqlcis_rule_5_1: true
 # postgresqlcis_rule_5_2: false
 
 # Section 6
-# Auditing and Logging
+# PostgreSQL Settings
 # postgresqlcis_rule_6_1: false
 postgresqlcis_rule_6_2: true
 postgresqlcis_rule_6_3: true
@@ -85,7 +105,7 @@ postgresqlcis_rule_6_8: true
 # postgresqlcis_rule_6_9: false
 
 # Section 7
-# 
+# Replication
 postgresqlcis_rule_7_1: true
 postgresqlcis_rule_7_2: true
 postgresqlcis_rule_7_3: true
@@ -95,7 +115,7 @@ postgresqlcis_rule_7_7: true
 postgresqlcis_rule_7_8: true
 
 # Section 8
-# 
+# Special Configuration Considerations
 # postgresqlcis_rule_8_1: false
 postgresqlcis_rule_8_2: true
 # postgresqlcis_rule_8_3: false
@@ -104,14 +124,20 @@ postgresqlcis_rule_8_2: true
 # Rule IDs
 
 # Section 1
+# Installation and Patches
 postgresqlcis_rule_1_1_id: "1.1"
 postgresqlcis_rule_1_2_id: "1.2"
 postgresqlcis_rule_1_3_id: "1.3"
+postgresqlcis_rule_1_4_id: "1.4"
 
 # Section 2
+# Directory and File Permissions
 postgresqlcis_rule_2_1_id: "2.1"
 
 # Section 3
+# Logging and Auditing
+# PostgreSQL Logging
+# Logging Rationale
 postgresqlcis_rule_3_1_1_id: "3.1.1"
 postgresqlcis_rule_3_1_2_id: "3.1.2"
 postgresqlcis_rule_3_1_3_id: "3.1.3"
@@ -138,16 +164,19 @@ postgresqlcis_rule_3_1_23_id: "3.1.23"
 postgresqlcis_rule_3_1_24_id: "3.1.24"
 postgresqlcis_rule_3_1_25_id: "3.1.25"
 postgresqlcis_rule_3_1_26_id: "3.1.26"
-postgresqlcis_rule_3_2_id: "3.2" 
+postgresqlcis_rule_3_2_id: "3.2"
 
 # Section 4
+# User Access and Authorization
 postgresqlcis_rule_4_1_id: "4.1"
 
 # Section 5
+# Connection and Login
 postgresqlcis_rule_5_1_id: "5.1"
 postgresqlcis_rule_5_2_id: "5.2"
 
 # Section 6
+# PostgreSQL Settings
 postgresqlcis_rule_6_1_id: "6.1"
 postgresqlcis_rule_6_2_id: "6.2"
 postgresqlcis_rule_6_3_id: "6.3"
@@ -159,6 +188,7 @@ postgresqlcis_rule_6_8_id: "6.8"
 postgresqlcis_rule_6_9_id: "6.9"
 
 # Section 7
+# Replication
 postgresqlcis_rule_7_1_id: "7.1"
 postgresqlcis_rule_7_2_id: "7.2"
 postgresqlcis_rule_7_3_id: "7.3"
@@ -168,7 +198,7 @@ postgresqlcis_rule_7_7_id: "7.7"
 postgresqlcis_rule_7_8_id: "7.8"
 
 # Section 8
+# Special Configuration Considerations
 postgresqlcis_rule_8_1_id: "8.1"
 postgresqlcis_rule_8_2_id: "8.2"
 postgresqlcis_rule_8_3_id: "8.3"
-

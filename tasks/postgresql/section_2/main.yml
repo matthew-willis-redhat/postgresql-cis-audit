@@ -2,7 +2,7 @@
 - name: "SECTION | {{ postgresqlcis_rule_2_1_id }} | {{ postgresqlcis_rule_2_1_name }}"
   ansible.builtin.include_tasks: cis_2.1.yml
   vars:
-    postgresqlcis_rule_2_1_name: ""
+    postgresqlcis_rule_2_1_name: "Ensure the file permissions mask is correct"
   when:
     - postgresqlcis_rule_2_1
   tags:

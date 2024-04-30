@@ -1,21 +1,21 @@
 ---
-- name: "PostgreSQL {{ postgresql_ver_full }} CIS {{ postgresql57cis_rule_1_3_id }} | Reset Rule Result to default value"
+- name: "PostgreSQL {{ postgresql_ver_full }} CIS {{ postgresqlcis_rule_1_3_id }} | Reset Rule Result to default value"
   ansible.builtin.set_fact:
-    postgresql57cis_rule_result: "FAILED"
+    postgresqlcis_rule_result: "FAILED"
 
-- name: "PostgreSQL {{ postgresql_ver_full }} CIS {{ postgresql57cis_rule_1_3_id }} | Set Fact Rule ID"
+- name: "PostgreSQL {{ postgresql_ver_full }} CIS {{ postgresqlcis_rule_1_3_id }} | Set Fact Rule ID"
   ansible.builtin.set_fact:
-    postgresql_cis_rule_id: "{{ postgresql57cis_rule_1_3_id | default('Missing Rule ID') }}"
+    postgresql_cis_rule_id: "{{ postgresqlcis_rule_1_3_id | default('Missing Rule ID') }}"
 
-- name: "PostgreSQL {{ postgresql_ver_full }} CIS {{ postgresql57cis_rule_1_3_id }} | Set Fact Rule Name"
+- name: "PostgreSQL {{ postgresql_ver_full }} CIS {{ postgresqlcis_rule_1_3_id }} | Set Fact Rule Name"
   ansible.builtin.set_fact:
-    postgresql_cis_rule_name: "{{ postgresql57cis_rule_1_3_name }}"
+    postgresql_cis_rule_name: "{{ postgresqlcis_rule_1_3_name }}"
 
-- name: "PostgreSQL {{ postgresql_ver_full }} CIS {{ postgresql57cis_rule_1_3_id }} | AUDIT | {{ postgresql_cis_rule_name }}"
+- name: "PostgreSQL {{ postgresql_ver_full }} CIS {{ postgresqlcis_rule_1_3_id }} | AUDIT | {{ postgresql_cis_rule_name }}"
   tags:
     - audit
     - level1-postgresql
     - rule_1.3
   when:
-    - postgresql57cis_rule_1_3
+    - postgresqlcis_rule_1_3
   block:

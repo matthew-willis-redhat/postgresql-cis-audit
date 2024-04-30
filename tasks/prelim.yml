@@ -1,19 +1,21 @@
 ---
+
 - name: "PostgreSQL CIS Audit | PRELIM | Gather PostgreSQL version from target node"
   community.postgresql.postgresql_info:
     filter: version
   register: postgresql_ver
+  delegate_to: localhost
 
-# - name: "PRELIM | AUDIT | Print MySql Version"
-#   ansible.builtin.debug:
-#     msg: "PostgreSQL Version on {{ inventory_hostname }}: {{ postgresql_ver['version']['full'] }}"
+- name: "PRELIM | AUDIT | Print MySql Version"
+  ansible.builtin.debug:
+    msg: "PostgreSQL Version on {{ inventory_hostname }}: {{ postgresql_ver['version']['full'] }}"
 
 - name: "PostgreSQL CIS Audit | PRELIM | Set Fact PostgreSQL Version"
   ansible.builtin.set_fact:
     postgresql_ver_maj_min: "{{ (postgresql_ver['version']['full']).split('.')[0:2] | join('.') }}"
     postgresql_ver_full: "{{ postgresql_ver['version']['full'] }}"
 
-# - name: "PRELIM | AUDIT | Print MySql Version"
+# - name: "PRELIM | AUDIT | Print PostgreSQL Version"
 #   ansible.builtin.debug:
-#     msg: "PostgreSQL Version on {{ inventory_hostname }}: {{ postgresql_ver_maj_min }}"
+#     msg: "PostgreSQL Version on {{ inventory_hostname }}: {{ postgresql_ver_full }}"
 ...

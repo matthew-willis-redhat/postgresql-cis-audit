@@ -5,9 +5,9 @@
   ansible.builtin.include_tasks:
     file: prelim.yml
 
-- name: "[INCLUDE_TASK] - postgreql-audit.yml"
+- name: "[INCLUDE_TASK] - postgresql-audit.yml"
   ansible.builtin.include_tasks:
-    file: postgreql-audit.yml
+    file: postgresql-audit.yml
   # when:
   #   - postgreql_ver_maj_min == ""
 
@@ -24,9 +24,9 @@
 - name: Full PostgreSQL CIS Compliance Report
   ansible.builtin.debug:
     msg:
-      - "Full PostgreSQL {{ mysql_ver_maj_min }} CIS Compliance Report"
+      - "Full PostgreSQL {{ postgresql_ver_full }} CIS Compliance Report"
       - "Hostname: {{ inventory_hostname }}"
-      - "PostgreSQL Version: {{ mysql_ver_full }}"
+      - "PostgreSQL Version: {{ postgresql_ver_full }}"
       - "Total PostgreSQL CIS Benchmark Checks: {{ full_rule_count }}"
       - "Total Warning(s)/Failure(s): {{ warn_rule_count }}"
       - "============================================================================================="

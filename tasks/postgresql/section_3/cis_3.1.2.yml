@@ -1,0 +1,51 @@
+---
+- name: "PostgreSQL {{ postgresql_ver_full }} CIS {{ postgresqlcis_rule_3_1_2_id }} | Reset Rule Result to default value"
+  ansible.builtin.set_fact:
+    postgresqlcis_rule_result: "FAILED"
+
+- name: "PostgreSQL {{ postgresql_ver_full }} CIS {{ postgresqlcis_rule_3_1_2_id }} | Set Fact Rule ID"
+  ansible.builtin.set_fact:
+    postgresql_cis_rule_id: "{{ postgresqlcis_rule_3_1_2_id | default('Missing Rule ID') }}"
+
+- name: "PostgreSQL {{ postgresql_ver_full }} CIS {{ postgresqlcis_rule_3_1_2_id }} | Set Fact Rule Name"
+  ansible.builtin.set_fact:
+    postgresql_cis_rule_name: "{{ postgresqlcis_rule_3_1_2_name }}"
+
+- name: "PostgreSQL {{ postgresql_ver_full }} CIS {{ postgresqlcis_rule_3_1_2_id }} | AUDIT | {{ postgresql_cis_rule_name }}"
+  tags:
+    - audit
+    - level1-postgresql
+    - rule_3.1.2
+  when:
+    - postgresqlcis_rule_3_1_2
+  block:
+    - name: Query Log Dest
+      community.postgresql.postgresql_query:
+        query:
+          - SHOW log_destination
+      register: postgresqlcis_rule_3_1_2_results
+      delegate_to: localhost
+
+    # - name: Debug
+    #   ansible.builtin.debug:
+    #     msg: "Did NOT PASS"
+    #   when: postgresqlcis_rule_3_1_2_results['query_result'] | selectattr('log_destination', 'equalto', 'stderr') 
+    
+    - name: "PostgreSQL {{ postgresql_ver_full }} CIS {{ postgresqlcis_rule_3_1_2_id }} | AUDIT | {{ postgresql_cis_rule_name }} || Set Rule Result"
+      ansible.builtin.set_fact:
+        postgresqlcis_rule_result: "PASSED"
+      when: not postgresqlcis_rule_3_1_2_results['query_result'] | selectattr('log_destination', 'equalto', 'stderr') 
+    
+    - name: "PostgreSQL {{ postgresql_ver_full }} CIS {{ postgresqlcis_rule_3_1_2_id }} | AUDIT | {{ postgresql_cis_rule_name }} || Set Rule Result"
+      ansible.builtin.set_fact:
+        postgresql_cis_rule_result: "{{ postgresqlcis_rule_result }}"
+
+    - name: "PostgreSQL {{ postgresql_ver_full }} CIS {{ postgresqlcis_rule_3_1_2_id }} | AUDIT | {{ postgresql_cis_rule_name }} | Add {{ postgresql_cis_rule_id }} result to WARNING Report"
+      ansible.builtin.include_tasks:
+        file: warning-audit-report.yml
+      when: postgresqlcis_rule_3_1_2_results['query_result'] | selectattr('log_destination', 'equalto', 'stderr') 
+
+    - name: "PostgreSQL {{ postgresql_ver_full }} CIS {{ postgresqlcis_rule_3_1_2_id }} | AUDIT | {{ postgresql_cis_rule_name }} | Add {{ postgresql_cis_rule_id }} result to FULL Report"
+      ansible.builtin.include_tasks:
+        file: full-audit-report.yml 
+...

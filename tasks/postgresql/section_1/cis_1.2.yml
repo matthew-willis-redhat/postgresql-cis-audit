@@ -1,21 +1,52 @@
 ---
-- name: "PostgreSQL {{ postgresql_ver_full }} CIS {{ postgresql57cis_rule_1_2_id }} | Reset Rule Result to default value"
+- name: "PostgreSQL {{ postgresql_ver_full }} CIS {{ postgresqlcis_rule_1_2_id }} | Reset Rule Result to default value"
   ansible.builtin.set_fact:
-    postgresql57cis_rule_result: "FAILED"
+    postgresqlcis_rule_result: "FAILED"
 
-- name: "PostgreSQL {{ postgresql_ver_full }} CIS {{ postgresql57cis_rule_1_2_id }} | Set Fact Rule ID"
+- name: "PostgreSQL {{ postgresql_ver_full }} CIS {{ postgresqlcis_rule_1_2_id }} | Set Fact Rule ID"
   ansible.builtin.set_fact:
-    postgresql_cis_rule_id: "{{ postgresql57cis_rule_1_2_id | default('Missing Rule ID') }}"
+    postgresql_cis_rule_id: "{{ postgresqlcis_rule_1_2_id | default('Missing Rule ID') }}"
 
-- name: "PostgreSQL {{ postgresql_ver_full }} CIS {{ postgresql57cis_rule_1_2_id }} | Set Fact Rule Name"
+- name: "PostgreSQL {{ postgresql_ver_full }} CIS {{ postgresqlcis_rule_1_2_id }} | Set Fact Rule Name"
   ansible.builtin.set_fact:
-    postgresql_cis_rule_name: "{{ postgresql57cis_rule_1_2_name }}"
+    postgresql_cis_rule_name: "{{ postgresqlcis_rule_1_2_name }}"
 
-- name: "PostgreSQL {{ postgresql_ver_full }} CIS {{ postgresql57cis_rule_1_2_id }} | AUDIT | {{ postgresql_cis_rule_name }}"
+- name: "PostgreSQL {{ postgresql_ver_full }} CIS {{ postgresqlcis_rule_1_2_id }} | AUDIT | {{ postgresql_cis_rule_name }}"
   tags:
     - audit
     - level1-postgresql
     - rule_1.2
   when:
-    - postgresql57cis_rule_1_2
+    - postgresqlcis_rule_1_2
   block:
+    - name: "PostgreSQL {{ postgresql_ver_full }} CIS {{ postgresqlcis_rule_1_2_id }} | AUDIT | {{ postgresql_cis_rule_name }} | Check if postgres packages are installed"
+      ansible.builtin.shell: "rpm -q $(dnf search postgresql | cut -d: -f1 | cut -d. -f1) 2>&1 | grep -Ev 'package.*is not installed'"
+      changed_when: false
+      register: postgresqlcis_rule_1_2_result
+
+    - name: "PostgreSQL {{ postgresql_ver_full }} CIS {{ postgresqlcis_rule_1_2_id }} | AUDIT | {{ postgresql_cis_rule_name }} | Print output"
+      ansible.builtin.debug:
+        var: postgresqlcis_rule_1_2_result['stdout_lines']
+      when: 
+       - postgresqlcis_rule_1_2_result.stdout is search('postgres')
+      #  - postgresqlcis_rule_1_2_result.stdout is search('rhel-9-for-x86_64-appstream-rpms')
+
+    - name: "PostgreSQL {{ postgresql_ver_full }} CIS {{ postgresqlcis_rule_1_2_id }} | AUDIT | {{ postgresql_cis_rule_name }} || Set Rule Result"
+      ansible.builtin.set_fact:
+        postgresqlcis_rule_result: "PASSED"
+      when:
+       - postgresqlcis_rule_1_2_result.stdout is search('postgres')
+    #    - postgresqlcis_rule_1_2_result.stdout is search('rhel-9-for-x86_64-appstream-rpms')
+    
+    - name: "PostgreSQL {{ postgresql_ver_full }} CIS {{ postgresqlcis_rule_1_2_id }} | AUDIT | {{ postgresql_cis_rule_name }} || Set Rule Result"
+      ansible.builtin.set_fact:
+        postgresql_cis_rule_result: "{{ postgresqlcis_rule_result }}"
+
+    - name: "PostgreSQL {{ postgresql_ver_full }} CIS {{ postgresqlcis_rule_1_2_id }} | AUDIT | {{ postgresql_cis_rule_name }} | Add {{ postgresql_cis_rule_id }} result to WARNING Report"
+      ansible.builtin.include_tasks:
+        file: warning-audit-report.yml
+      when: not postgresqlcis_rule_1_2_result.stdout is search('postgres')
+
+    - name: "PostgreSQL {{ postgresql_ver_full }} CIS {{ postgresqlcis_rule_1_2_id }} | AUDIT | {{ postgresql_cis_rule_name }} | Add {{ postgresql_cis_rule_id }} result to FULL Report"
+      ansible.builtin.include_tasks:
+        file: full-audit-report.yml 
