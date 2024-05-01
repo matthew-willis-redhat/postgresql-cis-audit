@@ -211,7 +211,7 @@
 - name: "SECTION | {{ postgresqlcis_rule_3_1_24_id }} | {{ postgresqlcis_rule_3_1_24_name }}"
   ansible.builtin.include_tasks: cis_3.1.24.yml
   vars:
-    postgresqlcis_rule_3_1_24_name: ""
+    postgresqlcis_rule_3_1_24_name: "Ensure 'log_line_prefix' is set correctly"
   when:
     - postgresqlcis_rule_3_1_24
   tags:
@@ -220,7 +220,7 @@
 - name: "SECTION | {{ postgresqlcis_rule_3_1_25_id }} | {{ postgresqlcis_rule_3_1_25_name }}"
   ansible.builtin.include_tasks: cis_3.1.25.yml
   vars:
-    postgresqlcis_rule_3_1_25_name: ""
+    postgresqlcis_rule_3_1_25_name: "Ensure 'log_statement' is set correctly"
   when:
     - postgresqlcis_rule_3_1_25
   tags:
@@ -229,7 +229,7 @@
 - name: "SECTION | {{ postgresqlcis_rule_3_1_26_id }} | {{ postgresqlcis_rule_3_1_26_name }}"
   ansible.builtin.include_tasks: cis_3.1.26.yml
   vars:
-    postgresqlcis_rule_3_1_26_name: ""
+    postgresqlcis_rule_3_1_26_name: "Ensure 'log_timezone' is set correctly"
   when:
     - postgresqlcis_rule_3_1_26
   tags:
