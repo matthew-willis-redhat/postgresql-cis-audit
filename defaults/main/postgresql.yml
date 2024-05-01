@@ -28,8 +28,8 @@ postgresqlcis_level_1_patch: false
 # Enable/Disable full sections toggle
 # Set to true will run that section, set to false will skip section
 postgresqlcis_section_1: true
-postgresqlcis_section_2: false
-postgresqlcis_section_3: false
+postgresqlcis_section_2: true
+postgresqlcis_section_3: true
 postgresqlcis_section_4: false
 postgresqlcis_section_5: false
 postgresqlcis_section_6: false
@@ -41,7 +41,7 @@ postgresqlcis_level_2: true
 
 # Section 1
 # Installation and Patches
-postgresqlcis_rule_1_1: true
+postgresqlcis_rule_1_1: false
 postgresqlcis_rule_1_2: false
 postgresqlcis_rule_1_3: false
 postgresqlcis_rule_1_4: false

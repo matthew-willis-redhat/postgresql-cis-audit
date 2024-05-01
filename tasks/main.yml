@@ -4,12 +4,14 @@
 - name: "[INCLUDE_TASK] - prelim.yml"
   ansible.builtin.include_tasks:
     file: prelim.yml
+  tags:
+    - always
 
 - name: "[INCLUDE_TASK] - postgresql-audit.yml"
   ansible.builtin.include_tasks:
     file: postgresql-audit.yml
-  # when:
-  #   - postgreql_ver_maj_min == ""
+  tags:
+    - always
 
 # - name: If Warnings were found, output the warning count and rule IDs affected
 #   ansible.builtin.debug:
@@ -31,8 +33,8 @@
       - "Total Warning(s)/Failure(s): {{ warn_rule_count }}"
       - "============================================================================================="
       - "{{ full_rule_report }}"
-  when: 
-    - full_rule_report is defined 
+  when:
+    - full_rule_report is defined
     - full_rule_report | length > 0
   tags:
     - always

@@ -6,6 +6,8 @@
   when:
     - postgresqlcis_rule_1_1
   tags:
+    - audit
+    - patch
     - postgresqlcis_rule_1_1
 
 - name: "SECTION | {{ postgresqlcis_rule_1_2_id }} | {{ postgresqlcis_rule_1_2_name }}"
@@ -15,6 +17,8 @@
   when:
     - postgresqlcis_rule_1_2
   tags:
+    - audit
+    - patch
     - postgresqlcis_rule_1_2
 
 - name: "SECTION | {{ postgresqlcis_rule_1_3_id }} | {{ postgresqlcis_rule_1_3_name }}"
@@ -24,5 +28,7 @@
   when:
     - postgresqlcis_rule_1_3
   tags:
+    - audit
+    - patch
     - postgresqlcis_rule_1_3
 ...

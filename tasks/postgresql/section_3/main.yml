@@ -6,6 +6,8 @@
   when:
     - postgresqlcis_rule_3_1_1
   tags:
+    - audit
+    - patch
     - postgresqlcis_rule_3_1_1
 
 - name: "SECTION | {{ postgresqlcis_rule_3_1_2_id }} | {{ postgresqlcis_rule_3_1_2_name }}"
@@ -14,7 +16,9 @@
     postgresqlcis_rule_3_1_2_name: "Ensure the log destinations are set correctly"
   when:
     - postgresqlcis_rule_3_1_2
-  tags:
+  tags:    
+    - audit
+    - patch
     - postgresqlcis_rule_3_1_2
 
 - name: "SECTION | {{ postgresqlcis_rule_3_1_3_id }} | {{ postgresqlcis_rule_3_1_3_name }}"
@@ -24,6 +28,8 @@
   when:
     - postgresqlcis_rule_3_1_3
   tags:
+    - audit
+    - patch
     - postgresqlcis_rule_3_1_3
 
 - name: "SECTION | {{ postgresqlcis_rule_3_1_4_id }} | {{ postgresqlcis_rule_3_1_4_name }}"
@@ -33,6 +39,8 @@
   when:
     - postgresqlcis_rule_3_1_4
   tags:
+    - audit
+    - patch
     - postgresqlcis_rule_3_1_4
 
 - name: "SECTION | {{ postgresqlcis_rule_3_1_5_id }} | {{ postgresqlcis_rule_3_1_5_name }}"
@@ -42,6 +50,8 @@
   when:
     - postgresqlcis_rule_3_1_5
   tags:
+    - audit
+    - patch
     - postgresqlcis_rule_3_1_5
 
 - name: "SECTION | {{ postgresqlcis_rule_3_1_6_id }} | {{ postgresqlcis_rule_3_1_6_name }}"
@@ -51,6 +61,8 @@
   when:
     - postgresqlcis_rule_3_1_6
   tags:
+    - audit
+    - patch
     - postgresqlcis_rule_3_1_6
 
 - name: "SECTION | {{ postgresqlcis_rule_3_1_7_id }} | {{ postgresqlcis_rule_3_1_7_name }}"
@@ -60,6 +72,8 @@
   when:
     - postgresqlcis_rule_3_1_7
   tags:
+    - audit
+    - patch
     - postgresqlcis_rule_3_1_7
 
 - name: "SECTION | {{ postgresqlcis_rule_3_1_8_id }} | {{ postgresqlcis_rule_3_1_8_name }}"
@@ -69,6 +83,8 @@
   when:
     - postgresqlcis_rule_3_1_8
   tags:
+    - audit
+    - patch
     - postgresqlcis_rule_3_1_8
 
 - name: "SECTION | {{ postgresqlcis_rule_3_1_9_id }} | {{ postgresqlcis_rule_3_1_9_name }}"
@@ -78,6 +94,8 @@
   when:
     - postgresqlcis_rule_3_1_9
   tags:
+    - audit
+    - patch
     - postgresqlcis_rule_3_1_9
 
 - name: "SECTION | {{ postgresqlcis_rule_3_1_10_id }} | {{ postgresqlcis_rule_3_1_10_name }}"
@@ -87,6 +105,8 @@
   when:
     - postgresqlcis_rule_3_1_10
   tags:
+    - audit
+    - patch
     - postgresqlcis_rule_3_1_10
 
 - name: "SECTION | {{ postgresqlcis_rule_3_1_11_id }} | {{ postgresqlcis_rule_3_1_11_name }}"
@@ -96,6 +116,8 @@
   when:
     - postgresqlcis_rule_3_1_11
   tags:
+    - audit
+    - patch
     - postgresqlcis_rule_3_1_11
 
 - name: "SECTION | {{ postgresqlcis_rule_3_1_12_id }} | {{ postgresqlcis_rule_3_1_12_name }}"
@@ -105,6 +127,8 @@
   when:
     - postgresqlcis_rule_3_1_12
   tags:
+    - audit
+    - patch
     - postgresqlcis_rule_3_1_12
 
 - name: "SECTION | {{ postgresqlcis_rule_3_1_13_id }} | {{ postgresqlcis_rule_3_1_13_name }}"
@@ -114,6 +138,8 @@
   when:
     - postgresqlcis_rule_3_1_13
   tags:
+    - audit
+    - patch
     - postgresqlcis_rule_3_1_13
 
 - name: "SECTION | {{ postgresqlcis_rule_3_1_14_id }} | {{ postgresqlcis_rule_3_1_14_name }}"
@@ -123,6 +149,8 @@
   when:
     - postgresqlcis_rule_3_1_14
   tags:
+    - audit
+    - patch
     - postgresqlcis_rule_3_1_14
 
 - name: "SECTION | {{ postgresqlcis_rule_3_1_15_id }} | {{ postgresqlcis_rule_3_1_15_name }}"
@@ -132,6 +160,8 @@
   when:
     - postgresqlcis_rule_3_1_15
   tags:
+    - audit
+    - patch
     - postgresqlcis_rule_3_1_15
 
 - name: "SECTION | {{ postgresqlcis_rule_3_1_16_id }} | {{ postgresqlcis_rule_3_1_16_name }}"
@@ -141,6 +171,8 @@
   when:
     - postgresqlcis_rule_3_1_16
   tags:
+    - audit
+    - patch
     - postgresqlcis_rule_3_1_16
 
 - name: "SECTION | {{ postgresqlcis_rule_3_1_17_id }} | {{ postgresqlcis_rule_3_1_17_name }}"
@@ -150,6 +182,8 @@
   when:
     - postgresqlcis_rule_3_1_17
   tags:
+    - audit
+    - patch
     - postgresqlcis_rule_3_1_17
 
 - name: "SECTION | {{ postgresqlcis_rule_3_1_18_id }} | {{ postgresqlcis_rule_3_1_18_name }}"
@@ -159,6 +193,8 @@
   when:
     - postgresqlcis_rule_3_1_18
   tags:
+    - audit
+    - patch
     - postgresqlcis_rule_3_1_18
 
 - name: "SECTION | {{ postgresqlcis_rule_3_1_19_id }} | {{ postgresqlcis_rule_3_1_19_name }}"
@@ -168,6 +204,8 @@
   when:
     - postgresqlcis_rule_3_1_19
   tags:
+    - audit
+    - patch
     - postgresqlcis_rule_3_1_19
 
 - name: "SECTION | {{ postgresqlcis_rule_3_1_20_id }} | {{ postgresqlcis_rule_3_1_20_name }}"
@@ -177,6 +215,8 @@
   when:
     - postgresqlcis_rule_3_1_20
   tags:
+    - audit
+    - patch
     - postgresqlcis_rule_3_1_20
 
 - name: "SECTION | {{ postgresqlcis_rule_3_1_21_id }} | {{ postgresqlcis_rule_3_1_21_name }}"
@@ -186,6 +226,8 @@
   when:
     - postgresqlcis_rule_3_1_21
   tags:
+    - audit
+    - patch
     - postgresqlcis_rule_3_1_21
 
 - name: "SECTION | {{ postgresqlcis_rule_3_1_22_id }} | {{ postgresqlcis_rule_3_1_22_name }}"
@@ -195,6 +237,8 @@
   when:
     - postgresqlcis_rule_3_1_22
   tags:
+    - audit
+    - patch
     - postgresqlcis_rule_3_1_22
 
 - name: "SECTION | {{ postgresqlcis_rule_3_1_23_id }} | {{ postgresqlcis_rule_3_1_23_name }}"
@@ -204,6 +248,8 @@
   when:
     - postgresqlcis_rule_3_1_23
   tags:
+    - audit
+    - patch
     - postgresqlcis_rule_3_1_23
 
 - name: "SECTION | {{ postgresqlcis_rule_3_1_24_id }} | {{ postgresqlcis_rule_3_1_24_name }}"
@@ -213,6 +259,8 @@
   when:
     - postgresqlcis_rule_3_1_24
   tags:
+    - audit
+    - patch
     - postgresqlcis_rule_3_1_24
 
 - name: "SECTION | {{ postgresqlcis_rule_3_1_25_id }} | {{ postgresqlcis_rule_3_1_25_name }}"
@@ -222,6 +270,8 @@
   when:
     - postgresqlcis_rule_3_1_25
   tags:
+    - audit
+    - patch
     - postgresqlcis_rule_3_1_25
 
 - name: "SECTION | {{ postgresqlcis_rule_3_1_26_id }} | {{ postgresqlcis_rule_3_1_26_name }}"
@@ -231,6 +281,8 @@
   when:
     - postgresqlcis_rule_3_1_26
   tags:
+    - audit
+    - patch
     - postgresqlcis_rule_3_1_26
 
 - name: "SECTION | {{ postgresqlcis_rule_3_2_id }} | {{ postgresqlcis_rule_3_2_name }}"
@@ -240,5 +292,7 @@
   when:
     - postgresqlcis_rule_3_2
   tags:
+    - audit
+    - patch
     - postgresqlcis_rule_3_2
 ...

@@ -3,13 +3,18 @@
   when:
     - postgresqlcis_section_1
   tags:
+    - audit
+    - patch
     - postgresqlcis_section_1
+
 
 - name: "Include Section 2 Tasks"
   ansible.builtin.include_tasks: postgresql/section_2/main.yml
   when:
     - postgresqlcis_section_2
   tags:
+    - audit
+    - patch
     - postgresqlcis_section_2
 
 - name: "Include Section 3 Tasks"
@@ -17,6 +22,8 @@
   when:
     - postgresqlcis_section_3
   tags:
+    - audit
+    - patch
     - postgresqlcis_section_3
 
 - name: "Include Section 4 Tasks"
@@ -24,6 +31,8 @@
   when:
     - postgresqlcis_section_4
   tags:
+    - audit
+    - patch
     - postgresqlcis_section_4
 
 - name: "Include Section 5 Tasks"
@@ -31,6 +40,8 @@
   when:
     - postgresqlcis_section_5
   tags:
+    - audit
+    - patch
     - postgresqlcis_section_5
 
 - name: "Include Section 6 Tasks"
@@ -38,6 +49,8 @@
   when:
     - postgresqlcis_section_6
   tags:
+    - audit
+    - patch
     - postgresqlcis_section_6
 
 - name: "Include Section 7 Tasks"
@@ -45,6 +58,8 @@
   when:
     - postgresqlcis_section_7
   tags:
+    - audit
+    - patch
     - postgresqlcis_section_7
 
 - name: "Include Section 8 Tasks"
@@ -52,4 +67,6 @@
   when:
     - postgresqlcis_section_8
   tags:
+    - audit
+    - patch
     - postgresqlcis_section_8
