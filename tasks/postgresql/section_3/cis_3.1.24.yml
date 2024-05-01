@@ -32,10 +32,6 @@
 
     - name: Debug
       ansible.builtin.debug:
-        var: postgresqlcis_log_line_prefix
-
-    - name: Debug
-      ansible.builtin.debug:
         var: postgresqlcis_rule_3_1_24_results
 
     - name: Debug
