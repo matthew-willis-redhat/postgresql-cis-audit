@@ -6,7 +6,6 @@
   when:
     - postgresqlcis_rule_2_1
   tags:
-    - audit
-    - patch
     - postgresqlcis_rule_2_1
+    - level1-postgresql
 ...

@@ -6,9 +6,8 @@
   when:
     - postgresqlcis_rule_1_1
   tags:
-    - audit
-    - patch
     - postgresqlcis_rule_1_1
+    - level1-postgresql
 
 - name: "SECTION | {{ postgresqlcis_rule_1_2_id }} | {{ postgresqlcis_rule_1_2_name }}"
   ansible.builtin.include_tasks: cis_1.2.yml
@@ -17,9 +16,8 @@
   when:
     - postgresqlcis_rule_1_2
   tags:
-    - audit
-    - patch
     - postgresqlcis_rule_1_2
+    - level1-postgresql
 
 - name: "SECTION | {{ postgresqlcis_rule_1_3_id }} | {{ postgresqlcis_rule_1_3_name }}"
   ansible.builtin.include_tasks: cis_1.3.yml
@@ -28,7 +26,6 @@
   when:
     - postgresqlcis_rule_1_3
   tags:
-    - audit
-    - patch
     - postgresqlcis_rule_1_3
+    - level1-postgresql
 ...
