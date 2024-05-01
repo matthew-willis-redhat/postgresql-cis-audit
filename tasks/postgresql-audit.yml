@@ -14,11 +14,16 @@
     - postgresqlcis_section_2
 
 - name: "Include Section 3 Tasks"
-  ansible.builtin.include_tasks: postgresql/section_3/main.yml
+  ansible.builtin.include_tasks: 
+    file: postgresql/section_3/main.yml
+    apply:
+      tags: audit
   when:
     - postgresqlcis_section_3
   tags:
     - postgresqlcis_section_3
+    - audit
+  
 
 - name: "Include Section 4 Tasks"
   ansible.builtin.include_tasks: postgresql/section_4/main.yml
