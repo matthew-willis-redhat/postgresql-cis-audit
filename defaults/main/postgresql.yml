@@ -29,6 +29,23 @@ postgresqlcis_log_rotation_size: "1GB"
 postgresqlcis_log_line_prefix: "%m [%p]: [%l-1] db=%d,user=%u,app=%a,client=%h "
 postgresqlcis_log_statement: "ddl"
 postgresqlcis_log_timezone: "GMT" # Needs clarification on which timezone to use
+postgresqlcis_log_rotation_size: "1GB"
+
+# The syslog_facility setting specifies the syslog "facility" to be used when logging to
+# syslog is enabled. You can choose from any of the 'local' facilities:
+    # • LOCAL0
+    # • LOCAL1
+    # • LOCAL2
+    # • LOCAL3
+    # • LOCAL4
+    # • LOCAL5
+    # • LOCAL6
+    # • LOCAL7
+# Your organization's logging policy should dictate which facility to use based on the
+# syslog daemon in use.
+postgresqlcis_syslog_facility: "local0"
+postgresqlcis_syslog_sequence_numbers: "on"
+postgresqlcis_syslog_split_messages: "on"
 
 # The syslog_facility setting specifies the syslog "facility" to be used when logging to
 # syslog is enabled. You can choose from any of the 'local' facilities:
