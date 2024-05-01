@@ -94,7 +94,7 @@
 - name: "SECTION | {{ postgresqlcis_rule_3_1_11_id }} | {{ postgresqlcis_rule_3_1_11_name }}"
   ansible.builtin.include_tasks: cis_3.1.11.yml
   vars:
-    postgresqlcis_rule_3_1_11_name: ""
+    postgresqlcis_rule_3_1_11_name: "Ensure syslog messages are not suppressed"
   when:
     - postgresqlcis_rule_3_1_11
   tags:

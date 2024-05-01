@@ -24,6 +24,7 @@ postgresqlcis_log_truncate_on_rotation: "on"
 postgresqlcis_log_rotation_age: "1d"
 postgresqlcis_log_rotation_size: "1GB"
 
+
 # The syslog_facility setting specifies the syslog "facility" to be used when logging to
 # syslog is enabled. You can choose from any of the 'local' facilities:
     # • LOCAL0
@@ -37,6 +38,7 @@ postgresqlcis_log_rotation_size: "1GB"
 # Your organization's logging policy should dictate which facility to use based on the
 # syslog daemon in use.
 postgresqlcis_syslog_facility: "local0"
+postgresqlcis_syslog_sequence_numbers: "on"
 
 # Default Rule Result - Overwrite variable in benchmark task
 postgresqlcis_rule_result: FAILED
@@ -83,8 +85,8 @@ postgresqlcis_rule_3_1_6: false
 postgresqlcis_rule_3_1_7: false
 postgresqlcis_rule_3_1_8: false
 postgresqlcis_rule_3_1_9: false
-postgresqlcis_rule_3_1_10: true
-postgresqlcis_rule_3_1_11: false
+postgresqlcis_rule_3_1_10: false
+postgresqlcis_rule_3_1_11: true
 postgresqlcis_rule_3_1_12: false
 postgresqlcis_rule_3_1_13: false
 postgresqlcis_rule_3_1_14: false
