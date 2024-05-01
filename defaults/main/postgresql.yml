@@ -25,6 +25,7 @@ postgresqlcis_logging_collector: "on"
 postgresqlcis_log_truncate_on_rotation: "on"
 postgresqlcis_log_rotation_age: "1d"
 postgresqlcis_log_line_prefix: "%m [%p]: [%l-1] db=%d,user=%u,app=%a,client=%h "
+postgresqlcis_log_statement: "ddl"
 
 # Default Rule Result - Overwrite variable in benchmark task
 postgresqlcis_rule_result: FAILED
@@ -85,8 +86,8 @@ postgresqlcis_rule_3_1_20: false
 postgresqlcis_rule_3_1_21: false
 postgresqlcis_rule_3_1_22: false
 postgresqlcis_rule_3_1_23: false
-postgresqlcis_rule_3_1_24: true
-postgresqlcis_rule_3_1_25: false
+postgresqlcis_rule_3_1_24: false
+postgresqlcis_rule_3_1_25: true
 postgresqlcis_rule_3_1_26: false
 postgresqlcis_rule_3_2: false
 

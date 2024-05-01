@@ -56,14 +56,4 @@
       ansible.builtin.include_tasks:
         file: full-audit-report.yml
 
-# - name: "PostgreSQL {{ postgresql_ver_full }} CIS {{ postgresqlcis_rule_3_1_23_id }} | PATCH | {{ postgresql_cis_rule_name }}"
-#   tags:
-#     - patch
-#   when:
-#     - postgresqlcis_rule_3_1_23
-#   block:
-#     - name: "PostgreSQL {{ postgresql_ver_full }} CIS {{ postgresqlcis_rule_3_1_23_id }} | PATCH | {{ postgresql_cis_rule_name }} | TODO"
-#       ansible.builtin.debug:
-#         msg: "TODO"
-
 ...

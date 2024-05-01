@@ -1,0 +1,63 @@
+---
+- name: "PostgreSQL {{ postgresql_ver_full }} CIS {{ postgresqlcis_rule_3_1_24_id }}"
+  tags:
+    - always
+  when:
+    - postgresqlcis_rule_3_1_24
+  block:
+    - name: "PostgreSQL {{ postgresql_ver_full }} CIS {{ postgresqlcis_rule_3_1_24_id }} | Reset Rule Result to default value"
+      ansible.builtin.set_fact:
+        postgresqlcis_rule_result: "FAILED"      
+
+    - name: "PostgreSQL {{ postgresql_ver_full }} CIS {{ postgresqlcis_rule_3_1_24_id }} | Set Fact Rule ID"
+      ansible.builtin.set_fact:
+        postgresql_cis_rule_id: "{{ postgresqlcis_rule_3_1_24_id | default('Missing Rule ID') }}"
+
+    - name: "PostgreSQL {{ postgresql_ver_full }} CIS {{ postgresqlcis_rule_3_1_24_id }} | Set Fact Rule Name"
+      ansible.builtin.set_fact:
+        postgresql_cis_rule_name: "{{ postgresqlcis_rule_3_1_24_name }}"
+  
+- name: "PostgreSQL {{ postgresql_ver_full }} CIS {{ postgresqlcis_rule_3_1_24_id }} | AUDIT | {{ postgresql_cis_rule_name }}"
+  tags:
+    - audit
+  when:
+    - postgresqlcis_rule_3_1_24
+  block:
+    - name: "PostgreSQL {{ postgresql_ver_full }} CIS {{ postgresqlcis_rule_3_1_24_id }} | AUDIT | {{ postgresql_cis_rule_name }} | Query Log Dest"
+      community.postgresql.postgresql_query:
+        query:
+          - SHOW log_line_prefix
+      register: postgresqlcis_rule_3_1_24_results
+      delegate_to: localhost
+
+    - name: Debug
+      ansible.builtin.debug:
+        var: postgresqlcis_log_line_prefix
+
+    - name: Debug
+      ansible.builtin.debug:
+        var: postgresqlcis_rule_3_1_24_results
+
+    - name: Debug
+      ansible.builtin.debug:
+        var: postgresqlcis_rule_3_1_24_results['query_result'] | selectattr('log_line_prefix', 'equalto', postgresqlcis_log_line_prefix)
+
+    - name: "PostgreSQL {{ postgresql_ver_full }} CIS {{ postgresqlcis_rule_3_1_24_id }} | AUDIT | {{ postgresql_cis_rule_name }} | Set Rule Result"
+      ansible.builtin.set_fact:
+        postgresqlcis_rule_result: "PASSED"
+      when: postgresqlcis_rule_3_1_24_results['query_result'] | selectattr('log_line_prefix', 'equalto', postgresqlcis_log_line_prefix) 
+
+    - name: "PostgreSQL {{ postgresql_ver_full }} CIS {{ postgresqlcis_rule_3_1_24_id }} | AUDIT | {{ postgresql_cis_rule_name }} | Set Rule Result"
+      ansible.builtin.set_fact:
+        postgresql_cis_rule_result: "{{ postgresqlcis_rule_result }}"
+
+    - name: "PostgreSQL {{ postgresql_ver_full }} CIS {{ postgresqlcis_rule_3_1_24_id }} | AUDIT | {{ postgresql_cis_rule_name }} | Add {{ postgresql_cis_rule_id }} result to WARNING Report"
+      ansible.builtin.include_tasks:
+        file: warning-audit-report.yml
+      when: not postgresqlcis_rule_3_1_24_results['query_result'] | selectattr('log_line_prefix', 'equalto', postgresqlcis_log_line_prefix) 
+
+    - name: "PostgreSQL {{ postgresql_ver_full }} CIS {{ postgresqlcis_rule_3_1_24_id }} | AUDIT | {{ postgresql_cis_rule_name }} | Add {{ postgresql_cis_rule_id }} result to FULL Report"
+      ansible.builtin.include_tasks:
+        file: full-audit-report.yml
+
+...
