@@ -18,7 +18,7 @@ postgresqlcis_home_path: /var/lib/pgsql
 postgresqlcis_bash_profile: "{{ postgresqlcis_home_path }}/.bash_profile"
 postgresqlcis_default_umask: "077"
 
-postgresqlcis_log_hostname: off
+postgresqlcis_log_hostname: "off"
 postgresqlcis_log_directory: log # Needs clarification on log directory
 postgresqlcis_log_file_permissions: "0600"
 postgresqlcis_logging_collector: "on"
