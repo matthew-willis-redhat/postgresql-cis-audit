@@ -39,6 +39,8 @@ postgresqlcis_log_rotation_size: "1GB"
 # syslog daemon in use.
 postgresqlcis_syslog_facility: "local0"
 postgresqlcis_syslog_sequence_numbers: "on"
+postgresqlcis_syslog_split_messages: "on"
+
 
 # Default Rule Result - Overwrite variable in benchmark task
 postgresqlcis_rule_result: FAILED
@@ -86,8 +88,8 @@ postgresqlcis_rule_3_1_7: false
 postgresqlcis_rule_3_1_8: false
 postgresqlcis_rule_3_1_9: false
 postgresqlcis_rule_3_1_10: false
-postgresqlcis_rule_3_1_11: true
-postgresqlcis_rule_3_1_12: false
+postgresqlcis_rule_3_1_11: false
+postgresqlcis_rule_3_1_12: true
 postgresqlcis_rule_3_1_13: false
 postgresqlcis_rule_3_1_14: false
 postgresqlcis_rule_3_1_15: false

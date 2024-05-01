@@ -103,7 +103,7 @@
 - name: "SECTION | {{ postgresqlcis_rule_3_1_12_id }} | {{ postgresqlcis_rule_3_1_12_name }}"
   ansible.builtin.include_tasks: cis_3.1.12.yml
   vars:
-    postgresqlcis_rule_3_1_12_name: ""
+    postgresqlcis_rule_3_1_12_name: "Ensure syslog messages are not lost due to size"
   when:
     - postgresqlcis_rule_3_1_12
   tags:
