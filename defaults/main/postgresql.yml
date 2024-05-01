@@ -84,8 +84,8 @@ postgresqlcis_rule_3_1_19: false
 postgresqlcis_rule_3_1_20: false
 postgresqlcis_rule_3_1_21: false
 postgresqlcis_rule_3_1_22: false
-postgresqlcis_rule_3_1_23: true
-postgresqlcis_rule_3_1_24: false
+postgresqlcis_rule_3_1_23: false
+postgresqlcis_rule_3_1_24: true
 postgresqlcis_rule_3_1_25: false
 postgresqlcis_rule_3_1_26: false
 postgresqlcis_rule_3_2: false
