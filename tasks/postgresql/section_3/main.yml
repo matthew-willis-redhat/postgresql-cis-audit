@@ -202,7 +202,7 @@
 - name: "SECTION | {{ postgresqlcis_rule_3_1_23_id }} | {{ postgresqlcis_rule_3_1_23_name }}"
   ansible.builtin.include_tasks: cis_3.1.23.yml
   vars:
-    postgresqlcis_rule_3_1_23_name: ""
+    postgresqlcis_rule_3_1_23_name: "Ensure 'log_hostname' is set correctly"
   when:
     - postgresqlcis_rule_3_1_23
   tags:
