@@ -30,7 +30,7 @@
 - name: "SECTION | {{ postgresqlcis_rule_3_1_4_id }} | {{ postgresqlcis_rule_3_1_4_name }}"
   ansible.builtin.include_tasks: cis_3.1.4.yml
   vars:
-    postgresqlcis_rule_3_1_4_name: ""
+    postgresqlcis_rule_3_1_4_name: "Ensure the log file destination directory is set correctly"
   when:
     - postgresqlcis_rule_3_1_4
   tags:
