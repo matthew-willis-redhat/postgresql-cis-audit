@@ -32,7 +32,7 @@
 
     - name: Debug
       ansible.builtin.debug:
-        var: postgresqlcis_rule_3_1_23_results['query_result'] | selectattr('log_hostname', 'equalto', postgresqlcis_log_hostname)
+        var: postgresqlcis_rule_3_1_23_results
 
     # - name: "PostgreSQL {{ postgresql_ver_full }} CIS {{ postgresqlcis_rule_3_1_23_id }} | AUDIT | {{ postgresql_cis_rule_name }} | Set Rule Result"
     #   ansible.builtin.set_fact:
