@@ -67,7 +67,7 @@
 - name: "SECTION | {{ postgresqlcis_rule_3_1_8_id }} | {{ postgresqlcis_rule_3_1_8_name }}"
   ansible.builtin.include_tasks: cis_3.1.8.yml
   vars:
-    postgresqlcis_rule_3_1_8_name: ""
+    postgresqlcis_rule_3_1_8_name: "Ensure the maximum log file lifetime is set correctly"
   when:
     - postgresqlcis_rule_3_1_8
   tags:

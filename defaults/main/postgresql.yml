@@ -19,9 +19,9 @@ postgresqlcis_bash_profile: "{{ postgresqlcis_home_path }}/.bash_profile"
 postgresqlcis_default_umask: "077"
 
 postgresqlcis_log_file_permissions: "0600"
-
 postgresqlcis_logging_collector: "on"
 postgresqlcis_log_truncate_on_rotation: "on"
+postgresqlcis_log_rotation_age: "1d"
 
 # Default Rule Result - Overwrite variable in benchmark task
 postgresqlcis_rule_result: FAILED
@@ -61,12 +61,12 @@ postgresqlcis_rule_2_1: true
 # postgresqlcis_rule_3_1: true
 postgresqlcis_rule_3_1_1: false
 postgresqlcis_rule_3_1_2: false
-postgresqlcis_rule_3_1_3: true
+postgresqlcis_rule_3_1_3: false
 postgresqlcis_rule_3_1_4: false
 postgresqlcis_rule_3_1_5: false
 postgresqlcis_rule_3_1_6: false
 postgresqlcis_rule_3_1_7: false
-postgresqlcis_rule_3_1_8: false
+postgresqlcis_rule_3_1_8: true
 postgresqlcis_rule_3_1_9: false
 postgresqlcis_rule_3_1_10: false
 postgresqlcis_rule_3_1_11: false
