@@ -85,7 +85,7 @@
 - name: "SECTION | {{ postgresqlcis_rule_3_1_10_id }} | {{ postgresqlcis_rule_3_1_10_name }}"
   ansible.builtin.include_tasks: cis_3.1.10.yml
   vars:
-    postgresqlcis_rule_3_1_10_name: ""
+    postgresqlcis_rule_3_1_10_name: "Ensure the correct syslog facility is selected"
   when:
     - postgresqlcis_rule_3_1_10
   tags:
