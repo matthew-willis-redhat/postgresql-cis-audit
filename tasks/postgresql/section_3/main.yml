@@ -58,7 +58,7 @@
 - name: "SECTION | {{ postgresqlcis_rule_3_1_7_id }} | {{ postgresqlcis_rule_3_1_7_name }}"
   ansible.builtin.include_tasks: cis_3.1.7.yml
   vars:
-    postgresqlcis_rule_3_1_7_name: ""
+    postgresqlcis_rule_3_1_7_name: "Ensure 'log_truncate_on_rotation' is enabled"
   when:
     - postgresqlcis_rule_3_1_7
   tags:
