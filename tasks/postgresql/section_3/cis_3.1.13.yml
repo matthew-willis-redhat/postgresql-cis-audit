@@ -1,0 +1,54 @@
+---
+- name: "PostgreSQL {{ postgresql_ver_full }} CIS {{ postgresqlcis_rule_3_1_13_id }}"
+  tags:
+    - always
+  when:
+    - postgresqlcis_rule_3_1_13
+  block:
+    - name: "PostgreSQL {{ postgresql_ver_full }} CIS {{ postgresqlcis_rule_3_1_13_id }} | Reset Rule Result to default value"
+      ansible.builtin.set_fact:
+        postgresqlcis_rule_result: "FAILED"      
+
+    - name: "PostgreSQL {{ postgresql_ver_full }} CIS {{ postgresqlcis_rule_3_1_13_id }} | Set Fact Rule ID"
+      ansible.builtin.set_fact:
+        postgresql_cis_rule_id: "{{ postgresqlcis_rule_3_1_13_id | default('Missing Rule ID') }}"
+
+    - name: "PostgreSQL {{ postgresql_ver_full }} CIS {{ postgresqlcis_rule_3_1_13_id }} | Set Fact Rule Name"
+      ansible.builtin.set_fact:
+        postgresql_cis_rule_name: "{{ postgresqlcis_rule_3_1_13_name }}"
+
+- name: "PostgreSQL {{ postgresql_ver_full }} CIS {{ postgresqlcis_rule_3_1_13_id }} | AUDIT | {{ postgresql_cis_rule_name }}"
+  tags:
+    - audit
+  when:
+    - postgresqlcis_rule_3_1_13
+  block:
+    - name: "PostgreSQL {{ postgresql_ver_full }} CIS {{ postgresqlcis_rule_3_1_13_id }} | AUDIT | {{ postgresql_cis_rule_name }} | Query Syslog Facility"
+      community.postgresql.postgresql_query:
+        query:
+          - SHOW syslog_indent
+      register: postgresqlcis_rule_3_1_13_results
+      delegate_to: localhost
+
+    # - name: Debug
+    #   ansible.builtin.debug:
+    #     var: postgresqlcis_rule_3_1_13_results['query_result'] | selectattr('syslog_indent', 'equalto', postgresqlcis_syslog_indent)
+
+    - name: "PostgreSQL {{ postgresql_ver_full }} CIS {{ postgresqlcis_rule_3_1_13_id }} | AUDIT | {{ postgresql_cis_rule_name }} | Set Rule Result"
+      ansible.builtin.set_fact:
+        postgresqlcis_rule_result: "PASSED"
+      when: postgresqlcis_rule_3_1_13_results['query_result'] | selectattr('syslog_indent', 'equalto', postgresqlcis_syslog_indent)
+    
+    - name: "PostgreSQL {{ postgresql_ver_full }} CIS {{ postgresqlcis_rule_3_1_13_id }} | AUDIT | {{ postgresql_cis_rule_name }} | Set Rule Result"
+      ansible.builtin.set_fact:
+        postgresql_cis_rule_result: "{{ postgresqlcis_rule_result }}"
+
+    - name: "PostgreSQL {{ postgresql_ver_full }} CIS {{ postgresqlcis_rule_3_1_13_id }} | AUDIT | {{ postgresql_cis_rule_name }} | Add {{ postgresql_cis_rule_id }} result to WARNING Report"
+      ansible.builtin.include_tasks:
+        file: warning-audit-report.yml
+      when: not postgresqlcis_rule_3_1_13_results['query_result'] | selectattr('syslog_indent', 'equalto', postgresqlcis_syslog_indent)
+
+    - name: "PostgreSQL {{ postgresql_ver_full }} CIS {{ postgresqlcis_rule_3_1_13_id }} | AUDIT | {{ postgresql_cis_rule_name }} | Add {{ postgresql_cis_rule_id }} result to FULL Report"
+      ansible.builtin.include_tasks:
+        file: full-audit-report.yml 
+...

@@ -112,7 +112,7 @@
 - name: "SECTION | {{ postgresqlcis_rule_3_1_13_id }} | {{ postgresqlcis_rule_3_1_13_name }}"
   ansible.builtin.include_tasks: cis_3.1.13.yml
   vars:
-    postgresqlcis_rule_3_1_13_name: ""
+    postgresqlcis_rule_3_1_13_name: "Ensure the program name for PostgreSQL syslog messages is correct"
   when:
     - postgresqlcis_rule_3_1_13
   tags:
