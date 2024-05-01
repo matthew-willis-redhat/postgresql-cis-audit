@@ -23,7 +23,7 @@
   when:
     - postgresqlcis_rule_3_1_5
   block:
-    - name: "PostgreSQL {{ postgresql_ver_full }} CIS {{ postgresqlcis_rule_3_1_2_id }} | AUDIT | {{ postgresql_cis_rule_name }} | Query Log Filename"
+    - name: "PostgreSQL {{ postgresql_ver_full }} CIS {{ postgresqlcis_rule_3_1_5_id }} | AUDIT | {{ postgresql_cis_rule_name }} | Query Log Filename"
       community.postgresql.postgresql_query:
         query:
           - SHOW log_filename

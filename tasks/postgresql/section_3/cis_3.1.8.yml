@@ -23,7 +23,7 @@
   when:
     - postgresqlcis_rule_3_1_8
   block:
-    - name: "PostgreSQL {{ postgresql_ver_full }} CIS {{ postgresqlcis_rule_3_1_2_id }} | AUDIT | {{ postgresql_cis_rule_name }} | Query Log Age"
+    - name: "PostgreSQL {{ postgresql_ver_full }} CIS {{ postgresqlcis_rule_3_1_8_id }} | AUDIT | {{ postgresql_cis_rule_name }} | Query Log Age"
       community.postgresql.postgresql_query:
         query:
           - SHOW log_rotation_age

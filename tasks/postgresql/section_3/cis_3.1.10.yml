@@ -23,7 +23,7 @@
   when:
     - postgresqlcis_rule_3_1_10
   block:
-    - name: "PostgreSQL {{ postgresql_ver_full }} CIS {{ postgresqlcis_rule_3_1_2_id }} | AUDIT | {{ postgresql_cis_rule_name }} | Query Syslog Facility"
+    - name: "PostgreSQL {{ postgresql_ver_full }} CIS {{ postgresqlcis_rule_3_1_10_id }} | AUDIT | {{ postgresql_cis_rule_name }} | Query Syslog Facility"
       community.postgresql.postgresql_query:
         query:
           - SHOW syslog_facility
