@@ -23,7 +23,7 @@
   when:
     - postgresqlcis_rule_3_1_3
   block:
-    - name: "PostgreSQL {{ postgresql_ver_full }} CIS {{ postgresqlcis_rule_3_1_2_id }} | AUDIT | {{ postgresql_cis_rule_name }} | Query Logging Collector"
+    - name: "PostgreSQL {{ postgresql_ver_full }} CIS {{ postgresqlcis_rule_3_1_3_id }} | AUDIT | {{ postgresql_cis_rule_name }} | Query Logging Collector"
       community.postgresql.postgresql_query:
         query:
           - SHOW logging_collector
