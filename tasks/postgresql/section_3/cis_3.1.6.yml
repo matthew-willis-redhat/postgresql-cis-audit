@@ -1,21 +1,25 @@
 ---
-- name: "PostgreSQL {{ postgresql_ver_full }} CIS {{ postgresqlcis_rule_3_1_6_id }} | Reset Rule Result to default value"
-  ansible.builtin.set_fact:
-    postgresqlcis_rule_result: "FAILED"
+- name: "PostgreSQL {{ postgresql_ver_full }} CIS {{ postgresqlcis_rule_3_1_6_id }}"
+  tags:
+    - always
+  when:
+    - postgresqlcis_rule_3_1_6
+  block:
+    - name: "PostgreSQL {{ postgresql_ver_full }} CIS {{ postgresqlcis_rule_3_1_6_id }} | Reset Rule Result to default value"
+      ansible.builtin.set_fact:
+        postgresqlcis_rule_result: "FAILED"      
 
-- name: "PostgreSQL {{ postgresql_ver_full }} CIS {{ postgresqlcis_rule_3_1_6_id }} | Set Fact Rule ID"
-  ansible.builtin.set_fact:
-    postgresql_cis_rule_id: "{{ postgresqlcis_rule_3_1_6_id | default('Missing Rule ID') }}"
+    - name: "PostgreSQL {{ postgresql_ver_full }} CIS {{ postgresqlcis_rule_3_1_6_id }} | Set Fact Rule ID"
+      ansible.builtin.set_fact:
+        postgresql_cis_rule_id: "{{ postgresqlcis_rule_3_1_6_id | default('Missing Rule ID') }}"
 
-- name: "PostgreSQL {{ postgresql_ver_full }} CIS {{ postgresqlcis_rule_3_1_6_id }} | Set Fact Rule Name"
-  ansible.builtin.set_fact:
-    postgresql_cis_rule_name: "{{ postgresqlcis_rule_3_1_6_name }}"
+    - name: "PostgreSQL {{ postgresql_ver_full }} CIS {{ postgresqlcis_rule_3_1_6_id }} | Set Fact Rule Name"
+      ansible.builtin.set_fact:
+        postgresql_cis_rule_name: "{{ postgresqlcis_rule_3_1_6_name }}"
 
 - name: "PostgreSQL {{ postgresql_ver_full }} CIS {{ postgresqlcis_rule_3_1_6_id }} | AUDIT | {{ postgresql_cis_rule_name }}"
   tags:
     - audit
-    - level1-postgresql
-    - rule_3.1.6
   when:
     - postgresqlcis_rule_3_1_6
   block:
@@ -26,26 +30,27 @@
       register: postgresqlcis_rule_3_1_6_results
       delegate_to: localhost
 
-    - name: Debug
-      ansible.builtin.debug:
-        var: postgresqlcis_rule_3_1_6_results
-      # when: postgresqlcis_rule_3_1_6_results['query_result'] | selectattr('log_filename', 'search', '%a.log')
+    # - name: Debug
+    #   ansible.builtin.debug:
+        # var: postgresqlcis_rule_3_1_6_results['query_result'] | map(attribute='log_file_mode') | first
+        # var: postgresqlcis_rule_3_1_6_results['query_result'] | selectattr('log_file_mode', 'equalto', postgresqlcis_log_file_permissions)
+      # when: postgresqlcis_rule_3_1_6_results['query_result'] 
     
-    # - name: "PostgreSQL {{ postgresql_ver_full }} CIS {{ postgresqlcis_rule_3_1_6_id }} | AUDIT | {{ postgresql_cis_rule_name }} || Set Rule Result"
-    #   ansible.builtin.set_fact:
-    #     postgresqlcis_rule_result: "PASSED"
-    #   when: not postgresqlcis_rule_3_1_6_results['query_result'] | selectattr('log_filename', 'search', '%a.log')
+    - name: "PostgreSQL {{ postgresql_ver_full }} CIS {{ postgresqlcis_rule_3_1_6_id }} | AUDIT | {{ postgresql_cis_rule_name }} | Set Rule Result"
+      ansible.builtin.set_fact:
+        postgresqlcis_rule_result: "PASSED"
+      when: postgresqlcis_rule_3_1_6_results['query_result'] | selectattr('log_file_mode', 'equalto', postgresqlcis_log_file_permissions)
     
-    # - name: "PostgreSQL {{ postgresql_ver_full }} CIS {{ postgresqlcis_rule_3_1_6_id }} | AUDIT | {{ postgresql_cis_rule_name }} || Set Rule Result"
-    #   ansible.builtin.set_fact:
-    #     postgresql_cis_rule_result: "{{ postgresqlcis_rule_result }}"
+    - name: "PostgreSQL {{ postgresql_ver_full }} CIS {{ postgresqlcis_rule_3_1_6_id }} | AUDIT | {{ postgresql_cis_rule_name }} | Set Rule Result"
+      ansible.builtin.set_fact:
+        postgresql_cis_rule_result: "{{ postgresqlcis_rule_result }}"
 
-    # - name: "PostgreSQL {{ postgresql_ver_full }} CIS {{ postgresqlcis_rule_3_1_6_id }} | AUDIT | {{ postgresql_cis_rule_name }} | Add {{ postgresql_cis_rule_id }} result to WARNING Report"
-    #   ansible.builtin.include_tasks:
-    #     file: warning-audit-report.yml
-    #   when: postgresqlcis_rule_3_1_6_results['query_result'] | selectattr('log_filename', 'search', '%a.log') 
+    - name: "PostgreSQL {{ postgresql_ver_full }} CIS {{ postgresqlcis_rule_3_1_6_id }} | AUDIT | {{ postgresql_cis_rule_name }} | Add {{ postgresql_cis_rule_id }} result to WARNING Report"
+      ansible.builtin.include_tasks:
+        file: warning-audit-report.yml
+      when: not postgresqlcis_rule_3_1_6_results['query_result'] | selectattr('log_file_mode', 'equalto', postgresqlcis_log_file_permissions) 
 
-    # - name: "PostgreSQL {{ postgresql_ver_full }} CIS {{ postgresqlcis_rule_3_1_6_id }} | AUDIT | {{ postgresql_cis_rule_name }} | Add {{ postgresql_cis_rule_id }} result to FULL Report"
-    #   ansible.builtin.include_tasks:
-    #     file: full-audit-report.yml 
+    - name: "PostgreSQL {{ postgresql_ver_full }} CIS {{ postgresqlcis_rule_3_1_6_id }} | AUDIT | {{ postgresql_cis_rule_name }} | Add {{ postgresql_cis_rule_id }} result to FULL Report"
+      ansible.builtin.include_tasks:
+        file: full-audit-report.yml 
 ...

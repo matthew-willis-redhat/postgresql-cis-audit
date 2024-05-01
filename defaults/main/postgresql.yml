@@ -16,7 +16,9 @@ postgresqlcis_allowed_superusers:
 
 postgresqlcis_home_path: /var/lib/pgsql
 postgresqlcis_bash_profile: "{{ postgresqlcis_home_path }}/.bash_profile"
-postgresqlcis_default_umask: '077'
+postgresqlcis_default_umask: "077"
+
+postgresqlcis_log_file_permissions: "0600"
 
 
 # Default Rule Result - Overwrite variable in benchmark task
@@ -27,8 +29,8 @@ postgresqlcis_level_1_patch: false
 
 # Enable/Disable full sections toggle
 # Set to true will run that section, set to false will skip section
-postgresqlcis_section_1: true
-postgresqlcis_section_2: true
+postgresqlcis_section_1: false
+postgresqlcis_section_2: false
 postgresqlcis_section_3: true
 postgresqlcis_section_4: false
 postgresqlcis_section_5: false
@@ -56,11 +58,11 @@ postgresqlcis_rule_2_1: true
 # Logging Rationale
 # postgresqlcis_rule_3_1: true
 postgresqlcis_rule_3_1_1: false
-postgresqlcis_rule_3_1_2: true
+postgresqlcis_rule_3_1_2: false
 postgresqlcis_rule_3_1_3: false
 postgresqlcis_rule_3_1_4: false
-postgresqlcis_rule_3_1_5: true
-postgresqlcis_rule_3_1_6: false
+postgresqlcis_rule_3_1_5: false
+postgresqlcis_rule_3_1_6: true
 postgresqlcis_rule_3_1_7: false
 postgresqlcis_rule_3_1_8: false
 postgresqlcis_rule_3_1_9: false
