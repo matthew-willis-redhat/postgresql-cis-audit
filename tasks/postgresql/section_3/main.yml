@@ -21,7 +21,7 @@
 - name: "SECTION | {{ postgresqlcis_rule_3_1_3_id }} | {{ postgresqlcis_rule_3_1_3_name }}"
   ansible.builtin.include_tasks: cis_3.1.3.yml
   vars:
-    postgresqlcis_rule_3_1_3_name: ""
+    postgresqlcis_rule_3_1_3_name: "Ensure the logging collector is enabled"
   when:
     - postgresqlcis_rule_3_1_3
   tags:
