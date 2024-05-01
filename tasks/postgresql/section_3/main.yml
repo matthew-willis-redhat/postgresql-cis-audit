@@ -76,7 +76,7 @@
 - name: "SECTION | {{ postgresqlcis_rule_3_1_9_id }} | {{ postgresqlcis_rule_3_1_9_name }}"
   ansible.builtin.include_tasks: cis_3.1.9.yml
   vars:
-    postgresqlcis_rule_3_1_9_name: ""
+    postgresqlcis_rule_3_1_9_name: "Ensure the maximum log file size is set correctly"
   when:
     - postgresqlcis_rule_3_1_9
   tags:

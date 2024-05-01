@@ -22,6 +22,7 @@ postgresqlcis_log_file_permissions: "0600"
 postgresqlcis_logging_collector: "on"
 postgresqlcis_log_truncate_on_rotation: "on"
 postgresqlcis_log_rotation_age: "1d"
+postgresqlcis_log_rotation_size: "1GB"
 
 # Default Rule Result - Overwrite variable in benchmark task
 postgresqlcis_rule_result: FAILED
@@ -66,8 +67,8 @@ postgresqlcis_rule_3_1_4: false
 postgresqlcis_rule_3_1_5: false
 postgresqlcis_rule_3_1_6: false
 postgresqlcis_rule_3_1_7: false
-postgresqlcis_rule_3_1_8: true
-postgresqlcis_rule_3_1_9: false
+postgresqlcis_rule_3_1_8: false
+postgresqlcis_rule_3_1_9: true
 postgresqlcis_rule_3_1_10: false
 postgresqlcis_rule_3_1_11: false
 postgresqlcis_rule_3_1_12: false
