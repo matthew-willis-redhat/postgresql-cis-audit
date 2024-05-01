@@ -76,7 +76,7 @@
 - name: "SECTION | {{ postgresqlcis_rule_3_1_9_id }} | {{ postgresqlcis_rule_3_1_9_name }}"
   ansible.builtin.include_tasks: cis_3.1.9.yml
   vars:
-    postgresqlcis_rule_3_1_9_name: ""
+    postgresqlcis_rule_3_1_9_name: "Ensure the maximum log file size is set correctly"
   when:
     - postgresqlcis_rule_3_1_9
   tags:
@@ -85,7 +85,7 @@
 - name: "SECTION | {{ postgresqlcis_rule_3_1_10_id }} | {{ postgresqlcis_rule_3_1_10_name }}"
   ansible.builtin.include_tasks: cis_3.1.10.yml
   vars:
-    postgresqlcis_rule_3_1_10_name: ""
+    postgresqlcis_rule_3_1_10_name: "Ensure the correct syslog facility is selected"
   when:
     - postgresqlcis_rule_3_1_10
   tags:
@@ -94,7 +94,7 @@
 - name: "SECTION | {{ postgresqlcis_rule_3_1_11_id }} | {{ postgresqlcis_rule_3_1_11_name }}"
   ansible.builtin.include_tasks: cis_3.1.11.yml
   vars:
-    postgresqlcis_rule_3_1_11_name: ""
+    postgresqlcis_rule_3_1_11_name: "Ensure syslog messages are not suppressed"
   when:
     - postgresqlcis_rule_3_1_11
   tags:
@@ -103,7 +103,7 @@
 - name: "SECTION | {{ postgresqlcis_rule_3_1_12_id }} | {{ postgresqlcis_rule_3_1_12_name }}"
   ansible.builtin.include_tasks: cis_3.1.12.yml
   vars:
-    postgresqlcis_rule_3_1_12_name: ""
+    postgresqlcis_rule_3_1_12_name: "Ensure syslog messages are not lost due to size"
   when:
     - postgresqlcis_rule_3_1_12
   tags:
