@@ -26,7 +26,7 @@
     - name: "PostgreSQL {{ postgresql_ver_full }} CIS {{ postgresqlcis_rule_3_1_4_id }} | AUDIT | {{ postgresql_cis_rule_name }} | Query Log Dest"
       community.postgresql.postgresql_query:
         query:
-          - SHOW log_destination
+          - SHOW log_directory
       register: postgresqlcis_rule_3_1_4_results
       delegate_to: localhost
 
