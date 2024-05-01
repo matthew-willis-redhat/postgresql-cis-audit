@@ -38,23 +38,23 @@
       ansible.builtin.debug:
         var: postgresqlcis_rule_3_1_24_results['query_result'] | selectattr('log_line_prefix', 'equalto', postgresqlcis_log_line_prefix)
 
-    # - name: "PostgreSQL {{ postgresql_ver_full }} CIS {{ postgresqlcis_rule_3_1_24_id }} | AUDIT | {{ postgresql_cis_rule_name }} | Set Rule Result"
-    #   ansible.builtin.set_fact:
-    #     postgresqlcis_rule_result: "PASSED"
-    #   when: postgresqlcis_rule_3_1_24_results['query_result'] | selectattr('log_line_prefix', 'equalto', postgresqlcis_log_line_prefix) 
+    - name: "PostgreSQL {{ postgresql_ver_full }} CIS {{ postgresqlcis_rule_3_1_24_id }} | AUDIT | {{ postgresql_cis_rule_name }} | Set Rule Result"
+      ansible.builtin.set_fact:
+        postgresqlcis_rule_result: "PASSED"
+      when: postgresqlcis_rule_3_1_24_results['query_result'] | selectattr('log_line_prefix', 'equalto', postgresqlcis_log_line_prefix) 
 
-    # - name: "PostgreSQL {{ postgresql_ver_full }} CIS {{ postgresqlcis_rule_3_1_24_id }} | AUDIT | {{ postgresql_cis_rule_name }} | Set Rule Result"
-    #   ansible.builtin.set_fact:
-    #     postgresql_cis_rule_result: "{{ postgresqlcis_rule_result }}"
+    - name: "PostgreSQL {{ postgresql_ver_full }} CIS {{ postgresqlcis_rule_3_1_24_id }} | AUDIT | {{ postgresql_cis_rule_name }} | Set Rule Result"
+      ansible.builtin.set_fact:
+        postgresql_cis_rule_result: "{{ postgresqlcis_rule_result }}"
 
-    # - name: "PostgreSQL {{ postgresql_ver_full }} CIS {{ postgresqlcis_rule_3_1_24_id }} | AUDIT | {{ postgresql_cis_rule_name }} | Add {{ postgresql_cis_rule_id }} result to WARNING Report"
-    #   ansible.builtin.include_tasks:
-    #     file: warning-audit-report.yml
-    #   when: not postgresqlcis_rule_3_1_24_results['query_result'] | selectattr('log_line_prefix', 'equalto', postgresqlcis_log_line_prefix) 
+    - name: "PostgreSQL {{ postgresql_ver_full }} CIS {{ postgresqlcis_rule_3_1_24_id }} | AUDIT | {{ postgresql_cis_rule_name }} | Add {{ postgresql_cis_rule_id }} result to WARNING Report"
+      ansible.builtin.include_tasks:
+        file: warning-audit-report.yml
+      when: not postgresqlcis_rule_3_1_24_results['query_result'] | selectattr('log_line_prefix', 'equalto', postgresqlcis_log_line_prefix) 
 
-    # - name: "PostgreSQL {{ postgresql_ver_full }} CIS {{ postgresqlcis_rule_3_1_24_id }} | AUDIT | {{ postgresql_cis_rule_name }} | Add {{ postgresql_cis_rule_id }} result to FULL Report"
-    #   ansible.builtin.include_tasks:
-    #     file: full-audit-report.yml
+    - name: "PostgreSQL {{ postgresql_ver_full }} CIS {{ postgresqlcis_rule_3_1_24_id }} | AUDIT | {{ postgresql_cis_rule_name }} | Add {{ postgresql_cis_rule_id }} result to FULL Report"
+      ansible.builtin.include_tasks:
+        file: full-audit-report.yml
 
 # - name: "PostgreSQL {{ postgresql_ver_full }} CIS {{ postgresqlcis_rule_3_1_24_id }} | PATCH | {{ postgresql_cis_rule_name }}"
 #   tags:
