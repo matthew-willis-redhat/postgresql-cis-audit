@@ -32,6 +32,10 @@
 
     - name: Debug
       ansible.builtin.debug:
+        var: postgresqlcis_rule_3_1_4_results['query_result'] 
+
+    - name: Debug
+      ansible.builtin.debug:
         var: postgresqlcis_rule_3_1_4_results['query_result'] | selectattr('log_directory', 'equalto', postgresqlcis_log_directory)
 
     - name: "PostgreSQL {{ postgresql_ver_full }} CIS {{ postgresqlcis_rule_3_1_4_id }} | AUDIT | {{ postgresql_cis_rule_name }} | Set Rule Result"
