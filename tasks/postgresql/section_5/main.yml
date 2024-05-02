@@ -2,7 +2,7 @@
 - name: "SECTION | {{ postgresqlcis_rule_5_1_id }} | {{ postgresqlcis_rule_5_1_name }}"
   ansible.builtin.include_tasks: cis_5.1.yml
   vars:
-    postgresqlcis_rule_5_1_name: ""
+    postgresqlcis_rule_5_1_name: "Do Not Specify Passwords in the Command Line"
   when:
     - postgresqlcis_rule_5_1
   tags:
