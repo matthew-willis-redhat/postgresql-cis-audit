@@ -139,7 +139,7 @@
 - name: "SECTION | {{ postgresqlcis_rule_3_1_16_id }} | {{ postgresqlcis_rule_3_1_16_name }}"
   ansible.builtin.include_tasks: cis_3.1.16.yml
   vars:
-    postgresqlcis_rule_3_1_16_name: ""
+    postgresqlcis_rule_3_1_16_name: "Ensure 'debug_print_parse' is disabled"
   when:
     - postgresqlcis_rule_3_1_16
   tags:
