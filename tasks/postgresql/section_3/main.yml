@@ -130,7 +130,7 @@
 - name: "SECTION | {{ postgresqlcis_rule_3_1_15_id }} | {{ postgresqlcis_rule_3_1_15_name }}"
   ansible.builtin.include_tasks: cis_3.1.15.yml
   vars:
-    postgresqlcis_rule_3_1_15_name: ""
+    postgresqlcis_rule_3_1_15_name: "Ensure the correct SQL statements generating errors are recorded"
   when:
     - postgresqlcis_rule_3_1_15
   tags:
