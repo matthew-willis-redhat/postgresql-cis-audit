@@ -157,7 +157,7 @@
 - name: "SECTION | {{ postgresqlcis_rule_3_1_18_id }} | {{ postgresqlcis_rule_3_1_18_name }}"
   ansible.builtin.include_tasks: cis_3.1.18.yml
   vars:
-    postgresqlcis_rule_3_1_18_name: ""
+    postgresqlcis_rule_3_1_18_name: "Ensure 'debug_print_plan' is disabled"
   when:
     - postgresqlcis_rule_3_1_18
   tags:

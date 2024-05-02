@@ -91,6 +91,7 @@ postgresqlcis_log_min_error_statement: "error"
 postgresqlcis_syslog_ident: postgres
 postgresqlcis_debug_print_parse: "off"
 postgresqlcis_debug_print_rewritten: "off"
+postgresqlcis_debug_print_plan: "off"
 
 # Default Rule Result - Overwrite variable in benchmark task
 postgresqlcis_rule_result: FAILED
@@ -144,8 +145,8 @@ postgresqlcis_rule_3_1_13: false
 postgresqlcis_rule_3_1_14: false
 postgresqlcis_rule_3_1_15: false
 postgresqlcis_rule_3_1_16: false
-postgresqlcis_rule_3_1_17: true
-postgresqlcis_rule_3_1_18: false
+postgresqlcis_rule_3_1_17: false
+postgresqlcis_rule_3_1_18: true
 postgresqlcis_rule_3_1_19: false
 postgresqlcis_rule_3_1_20: false
 postgresqlcis_rule_3_1_21: false
