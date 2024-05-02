@@ -164,9 +164,9 @@
     - postgresqlcis_rule_3_1_18
 
 - name: "SECTION | {{ postgresqlcis_rule_3_1_19_id }} | {{ postgresqlcis_rule_3_1_19_name }}"
-  ansible.builtin.include_tasks: cis_3.1.1.yml
+  ansible.builtin.include_tasks: cis_3.1.19.yml
   vars:
-    postgresqlcis_rule_3_1_19_name: ""
+    postgresqlcis_rule_3_1_19_name: "Ensure 'debug_pretty_print' is enabled"
   when:
     - postgresqlcis_rule_3_1_19
   tags:
