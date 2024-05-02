@@ -148,7 +148,7 @@
 - name: "SECTION | {{ postgresqlcis_rule_3_1_17_id }} | {{ postgresqlcis_rule_3_1_17_name }}"
   ansible.builtin.include_tasks: cis_3.1.17.yml
   vars:
-    postgresqlcis_rule_3_1_17_name: ""
+    postgresqlcis_rule_3_1_17_name: "Ensure 'debug_print_rewritten' is disabled"
   when:
     - postgresqlcis_rule_3_1_17
   tags:
