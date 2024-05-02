@@ -23,7 +23,7 @@
   when:
     - postgresqlcis_rule_3_1_15
   block:
-    - name: "PostgreSQL {{ postgresql_ver_full }} CIS {{ postgresqlcis_rule_3_1_15_id }} | AUDIT | {{ postgresql_cis_rule_name }} | Query Syslog Split Messages"
+    - name: "PostgreSQL {{ postgresql_ver_full }} CIS {{ postgresqlcis_rule_3_1_15_id }} | AUDIT | {{ postgresql_cis_rule_name }} | Query Log Min Error Statement"
       community.postgresql.postgresql_query:
         query:
           - SHOW log_min_error_statement
