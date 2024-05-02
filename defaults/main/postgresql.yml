@@ -44,6 +44,10 @@ postgresqlcis_log_timezone: "GMT" # Needs clarification on which timezone to use
 postgresqlcis_syslog_facility: "local0"
 postgresqlcis_syslog_sequence_numbers: "on"
 postgresqlcis_syslog_split_messages: "on"
+postgresqlcis_log_min_messages: "warning"
+
+# This variable can be overwritten with host_vars per server's application db
+postgresqlcis_syslog_ident: postgres
 
 # Default Rule Result - Overwrite variable in benchmark task
 postgresqlcis_rule_result: FAILED
@@ -92,9 +96,9 @@ postgresqlcis_rule_3_1_8: false
 postgresqlcis_rule_3_1_9: false
 postgresqlcis_rule_3_1_10: false
 postgresqlcis_rule_3_1_11: false
-postgresqlcis_rule_3_1_12: true
+postgresqlcis_rule_3_1_12: false
 postgresqlcis_rule_3_1_13: false
-postgresqlcis_rule_3_1_14: false
+postgresqlcis_rule_3_1_14: true
 postgresqlcis_rule_3_1_15: false
 postgresqlcis_rule_3_1_16: false
 postgresqlcis_rule_3_1_17: false

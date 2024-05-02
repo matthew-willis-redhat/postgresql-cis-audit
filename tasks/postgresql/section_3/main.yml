@@ -121,7 +121,7 @@
 - name: "SECTION | {{ postgresqlcis_rule_3_1_14_id }} | {{ postgresqlcis_rule_3_1_14_name }}"
   ansible.builtin.include_tasks: cis_3.1.14.yml
   vars:
-    postgresqlcis_rule_3_1_14_name: ""
+    postgresqlcis_rule_3_1_14_name: "Ensure the correct messages are written to the server log"
   when:
     - postgresqlcis_rule_3_1_14
   tags:
