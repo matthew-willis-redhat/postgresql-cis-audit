@@ -20,6 +20,7 @@ postgresqlcis_default_umask: "077"
 
 postgresqlcis_log_hostname: "off"
 postgresqlcis_log_directory: log # Needs clarification on log directory
+postgresqlcis_log_filename_search: "%a.log"
 postgresqlcis_log_file_permissions: "0600"
 postgresqlcis_logging_collector: "on"
 postgresqlcis_log_truncate_on_rotation: "on"
@@ -45,6 +46,57 @@ postgresqlcis_syslog_facility: "local0"
 postgresqlcis_syslog_sequence_numbers: "on"
 postgresqlcis_syslog_split_messages: "on"
 
+# The log_min_messages setting specifies the message levels that are written to the server
+# log. Each level includes all the levels that follow it. The lower the level (vertically,
+# below), the fewer messages are logged.
+# Valid values are:
+  # • DEBUG5 <-- exceedingly chatty
+  # • DEBUG4
+  # • DEBUG3
+  # • DEBUG2
+  # • DEBUG1
+  # • INFO
+  # • NOTICE
+  # • WARNING <-- default
+  # • ERROR
+  # • LOG
+  # • FATAL
+  # • PANIC <-- practically mute
+# WARNING is considered the best practice unless indicated otherwise by your
+# organization's logging policy.
+postgresqlcis_log_min_messages: "warning"
+
+# The log_min_error_statement setting causes all SQL statements generating errors at
+# or above the specified severity level to be recorded in the server log. Each level
+# includes all the levels that follow it. The lower the level (vertically, below), the fewer
+# messages are recorded. Valid values are:
+  # • DEBUG5 <-- exceedingly chatty
+  # • DEBUG4
+  # • DEBUG3
+  # • DEBUG2
+  # • DEBUG1
+  # • INFO
+  # • NOTICE
+  # • WARNING
+  # • ERROR <-- default
+  # • LOG
+  # • FATAL
+  # • PANIC <-- practically mute
+# ERROR is considered the best practice setting. Changes should only be made in
+# accordance with your organization's logging policy.
+postgresqlcis_log_min_error_statement: "error"
+
+
+
+# This variable can be overwritten with host_vars per server's application db
+postgresqlcis_syslog_ident: postgres
+postgresqlcis_debug_print_parse: "off"
+postgresqlcis_debug_print_rewritten: "off"
+postgresqlcis_debug_print_plan: "off"
+postgresqlcis_debug_pretty_print: "on"
+
+postgresqlcis_interactive_login_disabled: "postgres:!+" # This is a regex_search, postgres:! is the core
+
 # Default Rule Result - Overwrite variable in benchmark task
 postgresqlcis_rule_result: FAILED
 
@@ -67,10 +119,10 @@ postgresqlcis_level_2: true
 
 # Section 1
 # Installation and Patches
-postgresqlcis_rule_1_1: false
-postgresqlcis_rule_1_2: false
+postgresqlcis_rule_1_1: false # NEEDS TO BE INVESTIGATED
+postgresqlcis_rule_1_2: false # NEEDS TO BE INVESTIGATED
 postgresqlcis_rule_1_3: false
-postgresqlcis_rule_1_4: false
+# postgresqlcis_rule_1_4: false
 
 # Section 2
 # Directory and File Permissions
@@ -81,33 +133,33 @@ postgresqlcis_rule_2_1: true
 # PostgreSQL Logging
 # Logging Rationale
 # postgresqlcis_rule_3_1: true
-postgresqlcis_rule_3_1_1: false
+# postgresqlcis_rule_3_1_1: false
 postgresqlcis_rule_3_1_2: false
 postgresqlcis_rule_3_1_3: false
-postgresqlcis_rule_3_1_4: false
-postgresqlcis_rule_3_1_5: false
+postgresqlcis_rule_3_1_4: false # NEEDS TO BE INVESTIGATED
+postgresqlcis_rule_3_1_5: true # NEEDS TO BE INVESTIGATED
 postgresqlcis_rule_3_1_6: false
 postgresqlcis_rule_3_1_7: false
 postgresqlcis_rule_3_1_8: false
 postgresqlcis_rule_3_1_9: false
 postgresqlcis_rule_3_1_10: false
 postgresqlcis_rule_3_1_11: false
-postgresqlcis_rule_3_1_12: true
-postgresqlcis_rule_3_1_13: false
+postgresqlcis_rule_3_1_12: false
+postgresqlcis_rule_3_1_13: false # NEEDS TO BE INVESTIGATED
 postgresqlcis_rule_3_1_14: false
 postgresqlcis_rule_3_1_15: false
 postgresqlcis_rule_3_1_16: false
 postgresqlcis_rule_3_1_17: false
 postgresqlcis_rule_3_1_18: false
 postgresqlcis_rule_3_1_19: false
-postgresqlcis_rule_3_1_20: false
-postgresqlcis_rule_3_1_21: false
-postgresqlcis_rule_3_1_22: false
+# postgresqlcis_rule_3_1_20: false
+# postgresqlcis_rule_3_1_21: false
+# postgresqlcis_rule_3_1_22: false
 postgresqlcis_rule_3_1_23: false
 postgresqlcis_rule_3_1_24: false
 postgresqlcis_rule_3_1_25: false
 postgresqlcis_rule_3_1_26: false
-postgresqlcis_rule_3_2: false
+# postgresqlcis_rule_3_2: false
 
 # Section 4
 # User Access and Authorization

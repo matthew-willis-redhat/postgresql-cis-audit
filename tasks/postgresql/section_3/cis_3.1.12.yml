@@ -23,7 +23,7 @@
   when:
     - postgresqlcis_rule_3_1_12
   block:
-    - name: "PostgreSQL {{ postgresql_ver_full }} CIS {{ postgresqlcis_rule_3_1_12_id }} | AUDIT | {{ postgresql_cis_rule_name }} | Query Syslog Facility"
+    - name: "PostgreSQL {{ postgresql_ver_full }} CIS {{ postgresqlcis_rule_3_1_12_id }} | AUDIT | {{ postgresql_cis_rule_name }} | Query Syslog Split Messages"
       community.postgresql.postgresql_query:
         query:
           - SHOW syslog_split_messages

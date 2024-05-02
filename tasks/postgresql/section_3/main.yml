@@ -1,12 +1,12 @@
 ---
-- name: "SECTION | {{ postgresqlcis_rule_3_1_1_id }} | {{ postgresqlcis_rule_3_1_1_name }}"
-  ansible.builtin.include_tasks: cis_3.1.1.yml
-  vars:
-    postgresqlcis_rule_3_1_1_name: ""
-  when:
-    - postgresqlcis_rule_3_1_1
-  tags:    
-    - postgresqlcis_rule_3_1_1
+# - name: "SECTION | {{ postgresqlcis_rule_3_1_1_id }} | {{ postgresqlcis_rule_3_1_1_name }}"
+#   ansible.builtin.include_tasks: cis_3.1.1.yml
+#   vars:
+#     postgresqlcis_rule_3_1_1_name: ""
+#   when:
+#     - postgresqlcis_rule_3_1_1
+#   tags:    
+#     - postgresqlcis_rule_3_1_1
 
 - name: "SECTION | {{ postgresqlcis_rule_3_1_2_id }} | {{ postgresqlcis_rule_3_1_2_name }}"
   ansible.builtin.include_tasks: cis_3.1.2.yml
@@ -112,7 +112,7 @@
 - name: "SECTION | {{ postgresqlcis_rule_3_1_13_id }} | {{ postgresqlcis_rule_3_1_13_name }}"
   ansible.builtin.include_tasks: cis_3.1.13.yml
   vars:
-    postgresqlcis_rule_3_1_13_name: ""
+    postgresqlcis_rule_3_1_13_name: "Ensure the program name for PostgreSQL syslog messages is correct"
   when:
     - postgresqlcis_rule_3_1_13
   tags:
@@ -121,7 +121,7 @@
 - name: "SECTION | {{ postgresqlcis_rule_3_1_14_id }} | {{ postgresqlcis_rule_3_1_14_name }}"
   ansible.builtin.include_tasks: cis_3.1.14.yml
   vars:
-    postgresqlcis_rule_3_1_14_name: ""
+    postgresqlcis_rule_3_1_14_name: "Ensure the correct messages are written to the server log"
   when:
     - postgresqlcis_rule_3_1_14
   tags:
@@ -130,7 +130,7 @@
 - name: "SECTION | {{ postgresqlcis_rule_3_1_15_id }} | {{ postgresqlcis_rule_3_1_15_name }}"
   ansible.builtin.include_tasks: cis_3.1.15.yml
   vars:
-    postgresqlcis_rule_3_1_15_name: ""
+    postgresqlcis_rule_3_1_15_name: "Ensure the correct SQL statements generating errors are recorded"
   when:
     - postgresqlcis_rule_3_1_15
   tags:
@@ -139,7 +139,7 @@
 - name: "SECTION | {{ postgresqlcis_rule_3_1_16_id }} | {{ postgresqlcis_rule_3_1_16_name }}"
   ansible.builtin.include_tasks: cis_3.1.16.yml
   vars:
-    postgresqlcis_rule_3_1_16_name: ""
+    postgresqlcis_rule_3_1_16_name: "Ensure 'debug_print_parse' is disabled"
   when:
     - postgresqlcis_rule_3_1_16
   tags:
@@ -148,7 +148,7 @@
 - name: "SECTION | {{ postgresqlcis_rule_3_1_17_id }} | {{ postgresqlcis_rule_3_1_17_name }}"
   ansible.builtin.include_tasks: cis_3.1.17.yml
   vars:
-    postgresqlcis_rule_3_1_17_name: ""
+    postgresqlcis_rule_3_1_17_name: "Ensure 'debug_print_rewritten' is disabled"
   when:
     - postgresqlcis_rule_3_1_17
   tags:
@@ -157,47 +157,47 @@
 - name: "SECTION | {{ postgresqlcis_rule_3_1_18_id }} | {{ postgresqlcis_rule_3_1_18_name }}"
   ansible.builtin.include_tasks: cis_3.1.18.yml
   vars:
-    postgresqlcis_rule_3_1_18_name: ""
+    postgresqlcis_rule_3_1_18_name: "Ensure 'debug_print_plan' is disabled"
   when:
     - postgresqlcis_rule_3_1_18
   tags:
     - postgresqlcis_rule_3_1_18
 
 - name: "SECTION | {{ postgresqlcis_rule_3_1_19_id }} | {{ postgresqlcis_rule_3_1_19_name }}"
-  ansible.builtin.include_tasks: cis_3.1.1.yml
+  ansible.builtin.include_tasks: cis_3.1.19.yml
   vars:
-    postgresqlcis_rule_3_1_19_name: ""
+    postgresqlcis_rule_3_1_19_name: "Ensure 'debug_pretty_print' is enabled"
   when:
     - postgresqlcis_rule_3_1_19
   tags:
     - postgresqlcis_rule_3_1_19
 
-- name: "SECTION | {{ postgresqlcis_rule_3_1_20_id }} | {{ postgresqlcis_rule_3_1_20_name }}"
-  ansible.builtin.include_tasks: cis_3.1.20.yml
-  vars:
-    postgresqlcis_rule_3_1_20_name: ""
-  when:
-    - postgresqlcis_rule_3_1_20
-  tags:
-    - postgresqlcis_rule_3_1_20
+# - name: "SECTION | {{ postgresqlcis_rule_3_1_20_id }} | {{ postgresqlcis_rule_3_1_20_name }}"
+#   ansible.builtin.include_tasks: cis_3.1.20.yml
+#   vars:
+#     postgresqlcis_rule_3_1_20_name: ""
+#   when:
+#     - postgresqlcis_rule_3_1_20
+#   tags:
+#     - postgresqlcis_rule_3_1_20
 
-- name: "SECTION | {{ postgresqlcis_rule_3_1_21_id }} | {{ postgresqlcis_rule_3_1_21_name }}"
-  ansible.builtin.include_tasks: cis_3.1.21.yml
-  vars:
-    postgresqlcis_rule_3_1_21_name: ""
-  when:
-    - postgresqlcis_rule_3_1_21
-  tags:
-    - postgresqlcis_rule_3_1_21
+# - name: "SECTION | {{ postgresqlcis_rule_3_1_21_id }} | {{ postgresqlcis_rule_3_1_21_name }}"
+#   ansible.builtin.include_tasks: cis_3.1.21.yml
+#   vars:
+#     postgresqlcis_rule_3_1_21_name: ""
+#   when:
+#     - postgresqlcis_rule_3_1_21
+#   tags:
+#     - postgresqlcis_rule_3_1_21
 
-- name: "SECTION | {{ postgresqlcis_rule_3_1_22_id }} | {{ postgresqlcis_rule_3_1_22_name }}"
-  ansible.builtin.include_tasks: cis_3.1.22.yml
-  vars:
-    postgresqlcis_rule_3_1_22_name: ""
-  when:
-    - postgresqlcis_rule_3_1_22
-  tags:
-    - postgresqlcis_rule_3_1_22
+# - name: "SECTION | {{ postgresqlcis_rule_3_1_22_id }} | {{ postgresqlcis_rule_3_1_22_name }}"
+#   ansible.builtin.include_tasks: cis_3.1.22.yml
+#   vars:
+#     postgresqlcis_rule_3_1_22_name: ""
+#   when:
+#     - postgresqlcis_rule_3_1_22
+#   tags:
+#     - postgresqlcis_rule_3_1_22
 
 - name: "SECTION | {{ postgresqlcis_rule_3_1_23_id }} | {{ postgresqlcis_rule_3_1_23_name }}"
   ansible.builtin.include_tasks: cis_3.1.23.yml
@@ -235,12 +235,12 @@
   tags:
     - postgresqlcis_rule_3_1_26
 
-- name: "SECTION | {{ postgresqlcis_rule_3_2_id }} | {{ postgresqlcis_rule_3_2_name }}"
-  ansible.builtin.include_tasks: cis_3.2.yml
-  vars:
-    postgresqlcis_rule_3_2_name: ""
-  when:
-    - postgresqlcis_rule_3_2
-  tags:
-    - postgresqlcis_rule_3_2
+# - name: "SECTION | {{ postgresqlcis_rule_3_2_id }} | {{ postgresqlcis_rule_3_2_name }}"
+#   ansible.builtin.include_tasks: cis_3.2.yml
+#   vars:
+#     postgresqlcis_rule_3_2_name: ""
+#   when:
+#     - postgresqlcis_rule_3_2
+#   tags:
+#     - postgresqlcis_rule_3_2
 ...

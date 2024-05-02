@@ -23,12 +23,16 @@
   when:
     - postgresqlcis_rule_3_1_4
   block:
-    - name: "PostgreSQL {{ postgresql_ver_full }} CIS {{ postgresqlcis_rule_3_1_4_id }} | AUDIT | {{ postgresql_cis_rule_name }} | Query Log Dest"
+    - name: "PostgreSQL {{ postgresql_ver_full }} CIS {{ postgresqlcis_rule_3_1_4_id }} | AUDIT | {{ postgresql_cis_rule_name }} | Query Log Directory"
       community.postgresql.postgresql_query:
         query:
           - SHOW log_directory
       register: postgresqlcis_rule_3_1_4_results
       delegate_to: localhost
+
+    - name: Debug
+      ansible.builtin.debug:
+        var: postgresqlcis_rule_3_1_4_results['query_result'] 
 
     - name: Debug
       ansible.builtin.debug:

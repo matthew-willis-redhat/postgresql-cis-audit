@@ -23,7 +23,7 @@
   when:
     - postgresqlcis_rule_3_1_23
   block:
-    - name: "PostgreSQL {{ postgresql_ver_full }} CIS {{ postgresqlcis_rule_3_1_23_id }} | AUDIT | {{ postgresql_cis_rule_name }} | Query Log Dest"
+    - name: "PostgreSQL {{ postgresql_ver_full }} CIS {{ postgresqlcis_rule_3_1_23_id }} | AUDIT | {{ postgresql_cis_rule_name }} | Query Log Hostname"
       community.postgresql.postgresql_query:
         query:
           - SHOW log_hostname
