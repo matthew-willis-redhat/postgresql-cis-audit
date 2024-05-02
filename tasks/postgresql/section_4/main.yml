@@ -2,7 +2,7 @@
 - name: "SECTION | {{ postgresqlcis_rule_4_1_id }} | {{ postgresqlcis_rule_4_1_name }}"
   ansible.builtin.include_tasks: cis_4.1.yml
   vars:
-    postgresqlcis_rule_4_1_name: ""
+    postgresqlcis_rule_4_1_name: "Ensure Interactive Login is Disabled"
   when:
     - postgresqlcis_rule_4_1
   tags:

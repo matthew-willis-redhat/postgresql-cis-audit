@@ -94,6 +94,8 @@ postgresqlcis_debug_print_rewritten: "off"
 postgresqlcis_debug_print_plan: "off"
 postgresqlcis_debug_pretty_print: "on"
 
+postgresqlcis_interactive_login_disabled: "postgres:!+" # This is a regex_search, postgres:! is the core
+
 # Default Rule Result - Overwrite variable in benchmark task
 postgresqlcis_rule_result: FAILED
 
@@ -104,8 +106,8 @@ postgresqlcis_level_1_patch: false
 # Set to true will run that section, set to false will skip section
 postgresqlcis_section_1: false
 postgresqlcis_section_2: false
-postgresqlcis_section_3: true
-postgresqlcis_section_4: false
+postgresqlcis_section_3: false
+postgresqlcis_section_4: true
 postgresqlcis_section_5: false
 postgresqlcis_section_6: false
 postgresqlcis_section_7: false
@@ -130,11 +132,11 @@ postgresqlcis_rule_2_1: true
 # PostgreSQL Logging
 # Logging Rationale
 # postgresqlcis_rule_3_1: true
-postgresqlcis_rule_3_1_1: false
+# postgresqlcis_rule_3_1_1: false
 postgresqlcis_rule_3_1_2: false
 postgresqlcis_rule_3_1_3: false
 postgresqlcis_rule_3_1_4: false
-postgresqlcis_rule_3_1_5: false
+postgresqlcis_rule_3_1_5: true
 postgresqlcis_rule_3_1_6: false
 postgresqlcis_rule_3_1_7: false
 postgresqlcis_rule_3_1_8: false
@@ -148,15 +150,15 @@ postgresqlcis_rule_3_1_15: false
 postgresqlcis_rule_3_1_16: false
 postgresqlcis_rule_3_1_17: false
 postgresqlcis_rule_3_1_18: false
-postgresqlcis_rule_3_1_19: true
-postgresqlcis_rule_3_1_20: false
-postgresqlcis_rule_3_1_21: false
-postgresqlcis_rule_3_1_22: false
+postgresqlcis_rule_3_1_19: false
+# postgresqlcis_rule_3_1_20: false
+# postgresqlcis_rule_3_1_21: false
+# postgresqlcis_rule_3_1_22: false
 postgresqlcis_rule_3_1_23: false
 postgresqlcis_rule_3_1_24: false
 postgresqlcis_rule_3_1_25: false
 postgresqlcis_rule_3_1_26: false
-postgresqlcis_rule_3_2: false
+# postgresqlcis_rule_3_2: false
 
 # Section 4
 # User Access and Authorization
