@@ -1,12 +1,12 @@
 ---
-- name: "SECTION | {{ postgresqlcis_rule_3_1_1_id }} | {{ postgresqlcis_rule_3_1_1_name }}"
-  ansible.builtin.include_tasks: cis_3.1.1.yml
-  vars:
-    postgresqlcis_rule_3_1_1_name: ""
-  when:
-    - postgresqlcis_rule_3_1_1
-  tags:    
-    - postgresqlcis_rule_3_1_1
+# - name: "SECTION | {{ postgresqlcis_rule_3_1_1_id }} | {{ postgresqlcis_rule_3_1_1_name }}"
+#   ansible.builtin.include_tasks: cis_3.1.1.yml
+#   vars:
+#     postgresqlcis_rule_3_1_1_name: ""
+#   when:
+#     - postgresqlcis_rule_3_1_1
+#   tags:    
+#     - postgresqlcis_rule_3_1_1
 
 - name: "SECTION | {{ postgresqlcis_rule_3_1_2_id }} | {{ postgresqlcis_rule_3_1_2_name }}"
   ansible.builtin.include_tasks: cis_3.1.2.yml
@@ -172,32 +172,32 @@
   tags:
     - postgresqlcis_rule_3_1_19
 
-- name: "SECTION | {{ postgresqlcis_rule_3_1_20_id }} | {{ postgresqlcis_rule_3_1_20_name }}"
-  ansible.builtin.include_tasks: cis_3.1.20.yml
-  vars:
-    postgresqlcis_rule_3_1_20_name: ""
-  when:
-    - postgresqlcis_rule_3_1_20
-  tags:
-    - postgresqlcis_rule_3_1_20
+# - name: "SECTION | {{ postgresqlcis_rule_3_1_20_id }} | {{ postgresqlcis_rule_3_1_20_name }}"
+#   ansible.builtin.include_tasks: cis_3.1.20.yml
+#   vars:
+#     postgresqlcis_rule_3_1_20_name: ""
+#   when:
+#     - postgresqlcis_rule_3_1_20
+#   tags:
+#     - postgresqlcis_rule_3_1_20
 
-- name: "SECTION | {{ postgresqlcis_rule_3_1_21_id }} | {{ postgresqlcis_rule_3_1_21_name }}"
-  ansible.builtin.include_tasks: cis_3.1.21.yml
-  vars:
-    postgresqlcis_rule_3_1_21_name: ""
-  when:
-    - postgresqlcis_rule_3_1_21
-  tags:
-    - postgresqlcis_rule_3_1_21
+# - name: "SECTION | {{ postgresqlcis_rule_3_1_21_id }} | {{ postgresqlcis_rule_3_1_21_name }}"
+#   ansible.builtin.include_tasks: cis_3.1.21.yml
+#   vars:
+#     postgresqlcis_rule_3_1_21_name: ""
+#   when:
+#     - postgresqlcis_rule_3_1_21
+#   tags:
+#     - postgresqlcis_rule_3_1_21
 
-- name: "SECTION | {{ postgresqlcis_rule_3_1_22_id }} | {{ postgresqlcis_rule_3_1_22_name }}"
-  ansible.builtin.include_tasks: cis_3.1.22.yml
-  vars:
-    postgresqlcis_rule_3_1_22_name: ""
-  when:
-    - postgresqlcis_rule_3_1_22
-  tags:
-    - postgresqlcis_rule_3_1_22
+# - name: "SECTION | {{ postgresqlcis_rule_3_1_22_id }} | {{ postgresqlcis_rule_3_1_22_name }}"
+#   ansible.builtin.include_tasks: cis_3.1.22.yml
+#   vars:
+#     postgresqlcis_rule_3_1_22_name: ""
+#   when:
+#     - postgresqlcis_rule_3_1_22
+#   tags:
+#     - postgresqlcis_rule_3_1_22
 
 - name: "SECTION | {{ postgresqlcis_rule_3_1_23_id }} | {{ postgresqlcis_rule_3_1_23_name }}"
   ansible.builtin.include_tasks: cis_3.1.23.yml
@@ -235,12 +235,12 @@
   tags:
     - postgresqlcis_rule_3_1_26
 
-- name: "SECTION | {{ postgresqlcis_rule_3_2_id }} | {{ postgresqlcis_rule_3_2_name }}"
-  ansible.builtin.include_tasks: cis_3.2.yml
-  vars:
-    postgresqlcis_rule_3_2_name: ""
-  when:
-    - postgresqlcis_rule_3_2
-  tags:
-    - postgresqlcis_rule_3_2
+# - name: "SECTION | {{ postgresqlcis_rule_3_2_id }} | {{ postgresqlcis_rule_3_2_name }}"
+#   ansible.builtin.include_tasks: cis_3.2.yml
+#   vars:
+#     postgresqlcis_rule_3_2_name: ""
+#   when:
+#     - postgresqlcis_rule_3_2
+#   tags:
+#     - postgresqlcis_rule_3_2
 ...
