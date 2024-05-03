@@ -30,11 +30,11 @@
       register: postgresqlcis_rule_3_1_5_results
       delegate_to: localhost
 
-    # - name: Debug
-    #   ansible.builtin.debug:
-    #     var: postgresqlcis_rule_3_1_5_results
-    #   when: postgresqlcis_rule_3_1_5_results['query_result'] | selectattr('log_filename', 'search', '%a.log')
-      # when: postgresqlcis_rule_3_1_5_results['query_result'] | selectattr('log_destination', 'equalto', 'stderr') 
+    - name: Debug
+      ansible.builtin.debug:
+        var: postgresqlcis_rule_3_1_5_results
+      when: postgresqlcis_rule_3_1_5_results['query_result'] | selectattr('log_filename', 'search', '%a.log')
+      when: postgresqlcis_rule_3_1_5_results['query_result'] | selectattr('log_destination', 'equalto', 'stderr') 
     
     - name: "PostgreSQL {{ postgresql_ver_full }} CIS {{ postgresqlcis_rule_3_1_5_id }} | AUDIT | {{ postgresql_cis_rule_name }} || Set Rule Result"
       ansible.builtin.set_fact:
