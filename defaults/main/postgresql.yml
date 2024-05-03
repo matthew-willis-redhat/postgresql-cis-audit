@@ -85,7 +85,7 @@ postgresqlcis_rule_3_1_1: false
 postgresqlcis_rule_3_1_2: false
 postgresqlcis_rule_3_1_3: false
 postgresqlcis_rule_3_1_4: false
-postgresqlcis_rule_3_1_5: false
+postgresqlcis_rule_3_1_5: true
 postgresqlcis_rule_3_1_6: false
 postgresqlcis_rule_3_1_7: false
 postgresqlcis_rule_3_1_8: false
