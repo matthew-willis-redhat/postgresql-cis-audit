@@ -45,6 +45,7 @@ postgresqlcis_log_timezone: "GMT" # Needs clarification on which timezone to use
 postgresqlcis_syslog_facility: "local0"
 postgresqlcis_syslog_sequence_numbers: "on"
 postgresqlcis_syslog_split_messages: "on"
+postgresqlcis_syslog_ident: "postgres"
 
 # Default Rule Result - Overwrite variable in benchmark task
 postgresqlcis_rule_result: FAILED
