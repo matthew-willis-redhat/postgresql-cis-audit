@@ -34,7 +34,7 @@
     - name: Debug
       ansible.builtin.debug:
         var: postgresqlcis_rule_3_1_13_results #| selectattr('syslog_ident', 'equalto', postgresqlcis_syslog_ident)
-      # no_log: false
+      no_log: false
       
 
     - name: "PostgreSQL {{ postgresql_ver_full }} CIS {{ postgresqlcis_rule_3_1_13_id }} | AUDIT | {{ postgresql_cis_rule_name }} | Set Rule Result"
