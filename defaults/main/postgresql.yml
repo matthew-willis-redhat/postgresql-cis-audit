@@ -20,7 +20,7 @@ postgresqlcis_default_umask: "077"
 
 postgresqlcis_log_hostname: "off"
 postgresqlcis_log_directory: log # Needs clarification on log directory
-postgresqlcis_log_filename_search: "%a.log"
+postgresqlcis_log_filename: ".log"
 postgresqlcis_log_file_permissions: "0600"
 postgresqlcis_logging_collector: "on"
 postgresqlcis_log_truncate_on_rotation: "on"

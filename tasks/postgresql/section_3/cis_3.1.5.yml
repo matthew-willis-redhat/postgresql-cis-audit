@@ -32,15 +32,16 @@
 
     # - name: Debug
     #   ansible.builtin.debug:
-    #     var: postgresqlcis_rule_3_1_5_results['query_result'] | selectattr('log_filename', 'search', postgresqlcis_log_filename_search)
-    #   when: postgresqlcis_rule_3_1_5_results['query_result'] | selectattr('log_filename', 'search', postgresqlcis_log_filename_search)
-    #   when: postgresqlcis_rule_3_1_5_results['query_result'] | selectattr('log_filename', 'search', postgresqlcis_log_filename_search)
-      # when: postgresqlcis_rule_3_1_5_results['query_result'] | selectattr('log_destination', 'equalto', 'stderr') 
+    #     var: postgresqlcis_rule_3_1_5_results
+
+    # - name: Debug
+    #   ansible.builtin.debug:
+    #     var: postgresqlcis_rule_3_1_5_results['query_result'] | selectattr('log_filename', 'search', postgresqlcis_log_filename)
     
     - name: "PostgreSQL {{ postgresql_ver_full }} CIS {{ postgresqlcis_rule_3_1_5_id }} | AUDIT | {{ postgresql_cis_rule_name }} || Set Rule Result"
       ansible.builtin.set_fact:
         postgresqlcis_rule_result: "PASSED"
-      when: postgresqlcis_rule_3_1_5_results['query_result'] | selectattr('log_filename', 'search', postgresqlcis_log_filename_search)
+      when: postgresqlcis_rule_3_1_5_results['query_result'] | selectattr('log_filename', 'search', postgresqlcis_log_filename)
     
     - name: "PostgreSQL {{ postgresql_ver_full }} CIS {{ postgresqlcis_rule_3_1_5_id }} | AUDIT | {{ postgresql_cis_rule_name }} || Set Rule Result"
       ansible.builtin.set_fact:
@@ -49,7 +50,7 @@
     - name: "PostgreSQL {{ postgresql_ver_full }} CIS {{ postgresqlcis_rule_3_1_5_id }} | AUDIT | {{ postgresql_cis_rule_name }} | Add {{ postgresql_cis_rule_id }} result to WARNING Report"
       ansible.builtin.include_tasks:
         file: warning-audit-report.yml
-      when: not postgresqlcis_rule_3_1_5_results['query_result'] | selectattr('log_filename', 'search', postgresqlcis_log_filename_search) 
+      when: not postgresqlcis_rule_3_1_5_results['query_result'] | selectattr('log_filename', 'search', postgresqlcis_log_filename) 
 
     - name: "PostgreSQL {{ postgresql_ver_full }} CIS {{ postgresqlcis_rule_3_1_5_id }} | AUDIT | {{ postgresql_cis_rule_name }} | Add {{ postgresql_cis_rule_id }} result to FULL Report"
       ansible.builtin.include_tasks:
